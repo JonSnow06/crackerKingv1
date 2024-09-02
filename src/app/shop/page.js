@@ -140,7 +140,7 @@ const Shop = () => {
     <>
       <Navbar fireData={shopKart} />
       <Banner
-        backgroundImage={"../assets/bgShop.jpeg"}
+        backgroundImage={"/shopBg.jpeg"}
         headerText="Shop Now! For Unforgettable"
         subheaderText="Fireworks"
         buttonText="Contact Us"
