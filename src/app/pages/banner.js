@@ -10,7 +10,11 @@ const Banner = ({
   buttonText = "",
   onButtonClick,
 }) => {
-  const [windowWidth, setWindowWidth] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(1024);
+
+  useEffect(() => {
+    setWindowWidth(window.innerWidth);
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
