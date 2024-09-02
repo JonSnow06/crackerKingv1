@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import crackerKing from "../assets/crackerKing.svg";
+import crackerKing from "../assets/CrackerKing.svg";
 import cart from "../assets/cart.svg";
 import Styles from "../styles/Navbar.module.css";
 import Image from "next/image";

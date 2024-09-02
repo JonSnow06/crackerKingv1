@@ -1,5 +1,5 @@
 "use client";
-import crackerKing from "../assets/crackerKing.svg";
+import crackerKing from "../assets/CrackerKing.svg";
 import Styles from "../styles/footer.module.css";
 import Image from "next/image";
 

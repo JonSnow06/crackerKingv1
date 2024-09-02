@@ -4,7 +4,7 @@ import React from "react";
 import leftshotcracker from "../assets/leftshotcracker.svg";
 import rightshotcracker from "../assets/rightshotcracker.svg";
 import AccordianComponent from "./Accordian";
-import start from "../assets/star.svg";
+import start from "../assets/Star.svg";
 import Image from "next/image";
 import Styles from "../styles/homePage.module.css";
 import { accordian, crackKingData, missionData, reviewData } from "../cosntant";

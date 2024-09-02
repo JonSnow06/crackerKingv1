@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import styles from "../styles/Banner.module.css";
+import styles from "../styles/banner.module.css";
 
 const Banner = ({
   backgroundImage,
