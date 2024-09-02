@@ -1,10 +1,9 @@
 .bannerBg1 {
-  background-image: url("../assets/shopBg.jpeg");
+  background-image: url("../assets/bgShop.jpeg");
   max-width: 1600px;
   width: 100%;
   height: 823px;
   background-size: cover;
-  /* margin-bottom: 100px; */
 }
 .bannerHeader {
   padding-top: 300px;
