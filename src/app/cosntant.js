@@ -8,7 +8,7 @@ import shop from "./assets/shop.svg";
 import delight from "./assets/delight.svg";
 import call from "./assets/call.svg";
 import priya from "./assets/priya.svg";
-import rahul from "./assets/rahul.svg";
+import rahul from "./assets/Rahul.svg";
 import meera from "./assets/meera.svg";
 import shot from "./assets/crackerImage.svg";
 
