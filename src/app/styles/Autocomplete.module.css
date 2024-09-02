@@ -1,0 +1,31 @@
+/* styles/Autocomplete.module.css */
+.autocompleteContainer {
+  position: relative;
+  width: 360px;
+}
+
+.autocompleteInput {
+  max-width: 360px;
+  padding: 10px 40px 10px 15px;
+  border-radius: 28px;
+  border: none;
+  outline: none;
+  background-color: #2e2a21; /* Replace with your desired background color */
+  box-sizing: border-box;
+  color: #fff;
+  width: 100%;
+}
+
+.searchIcon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #fff;
+}
+
+/* datalist {
+  background-color: #2e2a21;
+  color: #fff;
+} */

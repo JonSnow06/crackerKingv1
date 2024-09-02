@@ -1,0 +1,236 @@
+.shopKartContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it’s on top of other content */
+}
+.shopModalWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  padding: 40px;
+  border-radius: 30px;
+  background: #231f17;
+  min-width: 1184px;
+}
+.shopKartWrapper {
+  height: 350px;
+  overflow: auto;
+  overflow-y: "scroll";
+}
+.shopKartCard {
+  padding: 10px 22px;
+  background: #1f1b13;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+.cardQuantity {
+  display: flex;
+  padding: 8px 8px 8px 8px;
+  align-items: center;
+  gap: 16px;
+  border-radius: 8px;
+  border: #4c4639;
+  background: #231f17;
+  margin-top: 8px;
+  height: 37px;
+}
+.cardPrice {
+  color: #eae1d4;
+  font-family: "Open Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 142.857% */
+  letter-spacing: 0.1px;
+}
+.shopkartCardTitle {
+  color: var(--OnSurface, #eae1d4);
+  /* Title/Large */
+  font-family: "Open Sans";
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px; /* 127.273% */
+  letter-spacing: 0px;
+  margin-bottom: 10px;
+}
+.shopkartCardSubTitle {
+  color: #eae1d4;
+
+  /* Body/Medium */
+  font-family: "Open Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 142.857% */
+  letter-spacing: 0.25px;
+}
+.shopKartCardPrice {
+  display: flex;
+  max-width: 455px;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+  justify-content: space-between;
+}
+.shopkartCardPriceKey {
+  color: #eae1d4;
+  font-family: "Open Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 142.857% */
+  letter-spacing: 0.1px;
+}
+
+.ContactBtn {
+  border: none;
+  outline: none;
+  border-radius: 100px;
+  background-color: #e4c36c;
+  color: var(--OnPrimary, #3d2e00);
+  text-align: center;
+  font-family: "Open Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 142.857% */
+  letter-spacing: 0.1px;
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px;
+}
+.minimunPrice {
+  border-radius: 20px;
+  border: 1px dashed var(--Error, #ffb4ab);
+  padding: 30px;
+  max-width: 409px;
+  width: 100%;
+}
+.minimunPriceKey {
+  color: var(--Error, #ffb4ab);
+  text-align: center;
+  font-family: Oswald;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px; /* 125% */
+  letter-spacing: 0px;
+  margin-bottom: 30px;
+}
+.minimunPriceValue {
+  color: #eae1d4;
+  font-family: "Open Sans";
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px; /* 127.273% */
+  letter-spacing: 0px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.closeIcon {
+  position: absolute;
+  top: 17px;
+  right: 25px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.shopModalWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  padding: 20px;
+  border-radius: 30px;
+  background: #231f17;
+  min-width: 90%; /* Adjust for mobile */
+  max-width: 1184px;
+}
+
+@media (min-width: 768px) {
+  .shopModalWrapper {
+    padding: 40px;
+    min-width: 700px; /* Adjust for tablets */
+  }
+}
+
+@media (min-width: 1024px) {
+  .shopModalWrapper {
+    min-width: 900px; /* Adjust for laptops */
+  }
+}
+
+/* Adjust font sizes for different devices */
+.shopkartCardTitle {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.shopkartCardSubTitle,
+.cardPrice,
+.shopkartCardPriceKey {
+  font-size: 12px;
+  line-height: 18px;
+}
+
+@media (min-width: 768px) {
+  .shopkartCardTitle {
+    font-size: 22px;
+    line-height: 28px;
+  }
+
+  .shopkartCardSubTitle,
+  .cardPrice,
+  .shopkartCardPriceKey {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+.ContactBtn {
+  width: 100%;
+  padding: 10px;
+  border-radius: 100px;
+  font-size: 14px;
+}
+
+.minimunPrice {
+  padding: 20px;
+}
+
+@media (min-width: 768px) {
+  .minimunPrice {
+    padding: 30px;
+  }
+}
+
+.closeIcon {
+  font-size: 24px;
+}
+
+@media (min-width: 768px) {
+  .closeIcon {
+    font-size: 30px;
+  }
+}
+@media (max-width: 767px) {
+  .shopModalWrapper {
+    flex-wrap: wrap; /* Adjust for laptops */
+    overflow-y: auto;
+    height: 600px;
+  }
+}

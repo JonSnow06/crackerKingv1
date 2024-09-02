@@ -1,0 +1,53 @@
+.accordianBorder {
+  border: 0.5px solid #e4c36c;
+  width: 100%;
+  max-width: 809px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+.accordianWrapper {
+  display: flex;
+}
+.accordianDescription {
+  margin: 20px 0px 30px 0px;
+  display: flex;
+  justify-content: center;
+}
+.accordianRemove {
+  display: none;
+}
+.accordianDesc {
+  font-family: Open Sans;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 36px;
+  text-align: left;
+  color: #ffffff;
+  max-width: 661px;
+}
+.accordianText {
+  max-width: 723px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  gap: 40px;
+  padding: 23px 0px 23px 0px;
+}
+.accordianNumber {
+  font-family: Open Sans;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32.68px;
+  text-align: left;
+  color: #ffffff;
+  padding-left: 40px;
+}
+.accordianContent {
+  font-family: Open Sans;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32.68px;
+  text-align: left;
+  color: #ffffff;
+}

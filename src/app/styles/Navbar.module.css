@@ -1,0 +1,172 @@
+/* components/Navbar.module.css */
+
+.navbar {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 100%;
+  /* background-color: #333; */
+  color: #fff;
+  z-index: 10; /* Higher than the banner */
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+}
+.navBarLinksContainer {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.navList {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navListItem {
+  margin: 0 20px;
+}
+
+.navListItem a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.navListItem a:hover {
+  text-decoration: underline;
+}
+.navBarDesign {
+  border-radius: 100px;
+  background: rgba(39, 38, 34, 0.3);
+  backdrop-filter: blur(17px);
+  max-width: 1065px;
+  width: 100%;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navBarLinks {
+  color: var(--OnSurfaceVariant, #cfc5b4);
+  text-align: center;
+  font-family: "Open Sans";
+  font-size: var(--Title-Medium-Size, 16px);
+  font-style: normal;
+  font-weight: 500;
+  line-height: var(--Title-Medium-Line-Height, 24px); /* 150% */
+  letter-spacing: var(--Title-Medium-Tracking, 0.15px);
+}
+.NavContactBtn {
+  border-radius: 100px;
+  border: 1px solid var(--Outline, #989080);
+  padding: 7px 14px;
+  background: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1px;
+  color: var(--Primary, #e4c36c);
+  text-align: center;
+
+  /* Label/Large */
+  font-family: "Open Sans";
+  font-size: var(--Label-Large-Size, 14px);
+  font-style: normal;
+  font-weight: 500;
+  line-height: var(--Label-Large-Line-Height, 20px); /* 142.857% */
+  letter-spacing: var(--Label-Large-Tracking, 0.1px);
+}
+.overlay {
+  display: none;
+}
+.menuIcon {
+  display: none;
+}
+.cartCount {
+  position: absolute;
+  top: -10px; /* Adjust this value to move the number above the cart */
+  right: -10px; /* Adjust this value to align the number to the right */
+  background-color: #ff0000; /* Background color for the number */
+  color: #fff; /* Text color for the number */
+  border-radius: 50%; /* Make the background circular */
+  padding: 2px 6px; /* Adjust padding to fit the number */
+  font-size: 14px; /* Adjust font size */
+  font-weight: bold; /* Make the number bold */
+}
+
+@media (max-width: 550px) {
+  .navBarLinksContainer {
+    display: none;
+  }
+  .NavContactBtn {
+    display: none;
+  }
+  .NavContactBtnMobile {
+    border-radius: 100px;
+    border: 1px solid var(--Outline, #989080);
+    padding: 7px 14px;
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1px;
+    color: var(--Primary, #e4c36c);
+    text-align: center;
+
+    /* Label/Large */
+    font-family: "Open Sans";
+    font-size: var(--Label-Large-Size, 14px);
+    font-style: normal;
+    font-weight: 500;
+    line-height: var(--Label-Large-Line-Height, 20px); /* 142.857% */
+    letter-spacing: var(--Label-Large-Tracking, 0.1px);
+  }
+  .menuIcon {
+    padding-left: 17px;
+    cursor: pointer;
+    display: flex;
+  }
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it’s on top of other content */
+  }
+  .navBarLinksTable {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 21px;
+    border-radius: 30px;
+    background: var(--surf-container, #231f17);
+  }
+  .navBarLinks {
+    color: var(--OnSurfaceVariant, #cfc5b4);
+    text-align: center;
+    font-family: "Open Sans";
+    font-size: var(--Title-Medium-Size, 16px);
+    font-style: normal;
+    font-weight: 500;
+    line-height: var(--Title-Medium-Line-Height, 24px); /* 150% */
+    letter-spacing: var(--Title-Medium-Tracking, 0.15px);
+  }
+  .closeIcon {
+    display: flex;
+    justify-content: end;
+    cursor: pointer;
+    padding: 20px 17px 0px 0px;
+  }
+  .mobileNavBarLinks {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 21px;
+  }
+}

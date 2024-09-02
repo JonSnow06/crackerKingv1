@@ -1,0 +1,36 @@
+/* components/InputField.module.css */
+
+.inputField {
+  margin-bottom: 1rem;
+}
+
+.label {
+  color: var(--OnSurfaceVariant, #cfc5b4);
+
+  /* Label/Large */
+  font-family: "Open Sans";
+  font-size: var(--Label-Large-Size, 14px);
+  font-style: normal;
+  font-weight: 500;
+  line-height: var(--Label-Large-Line-Height, 20px); /* 142.857% */
+  letter-spacing: var(--Label-Large-Tracking, 0.1px);
+  margin-bottom: 2px;
+}
+
+.input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+}
+
+@media (max-width: 500px) {
+  .inputField {
+    text-align: center;
+  }
+  .input {
+    width: 200px !important;
+  }
+}
