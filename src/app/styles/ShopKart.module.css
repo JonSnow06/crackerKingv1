@@ -143,12 +143,11 @@
 }
 .closeIcon {
   position: absolute;
-  top: 17px;
-  right: 25px;
+  top: 9px;
+  right: 21px;
   font-size: 30px;
   cursor: pointer;
 }
-
 .shopModalWrapper {
   position: relative;
   display: flex;

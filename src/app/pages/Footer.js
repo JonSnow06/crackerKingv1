@@ -1,5 +1,6 @@
 "use client";
 import crackerKing from "../assets/CrackerKing.svg";
+import Link from "next/link";
 import Styles from "../styles/footer.module.css";
 import Image from "next/image";
 
@@ -8,7 +9,6 @@ const Footer = () => {
     <div
       style={{
         background: " #1E1E1E",
-        paddingBottom: "60px",
         paddingTop: "100px",
       }}
     >
@@ -33,13 +33,15 @@ const Footer = () => {
           </div>
 
           <div style={{ maxWidth: "59px", width: "100%" }}>
-            <p className={Styles.footerNav}>Home</p>
-
-            <p className={Styles.footerNav}>About</p>
-
-            <p className={Styles.footerNav}>Shop</p>
-
-            <p className={Styles.footerNav}>Contact</p>
+            <Link href="/">
+              <p className={Styles.footerNav}>Home</p>
+            </Link>
+            <Link href="/shop">
+              <p className={Styles.footerNav}>Shop</p>
+            </Link>
+            <Link href="/contactUs">
+              <p className={Styles.footerNav}>Contact</p>
+            </Link>
           </div>
           <div style={{ maxWidth: "161px", width: "100%" }}>
             <p className={Styles.footerNav}>Privacy Policy</p>

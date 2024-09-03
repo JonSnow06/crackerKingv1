@@ -14,19 +14,6 @@ const Navbar = ({ fireData = [] }) => {
   const [mobileNavBar, setMobileNavBar] = useState(false);
   const [count, setCount] = useState(0);
 
-  // useEffect(() => {
-  //   if (storedArrayString) {
-  //     try {
-  //       // Parse the JSON string back into an array of objects
-  //       const storedArray = JSON.parse(storedArrayString);
-  //       setCount(storedArray.length);
-  //       console.log(storedArray.length, ";;;a"); // [{ key: "apple" }, { key: "banana" }, { key: "cherry" }]
-  //     } catch (error) {
-  //       console.error("Failed to parse JSON:", error);
-  //     }
-  //   }
-  // }, []);
-
   return (
     <>
       <nav className={Styles.navbar}>

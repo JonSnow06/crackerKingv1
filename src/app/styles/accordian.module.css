@@ -51,3 +51,15 @@
   text-align: left;
   color: #ffffff;
 }
+
+@media (max-width: 550px) {
+  .accordianContent {
+    font-size: 16px;
+  }
+  .accordianNumber {
+    font-size: 16px;
+  }
+  .accordianDesc {
+    font-size: 14px;
+  }
+}

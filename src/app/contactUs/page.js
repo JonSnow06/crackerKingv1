@@ -65,7 +65,6 @@ const contactUs = () => {
     // console.log(checkoutData, "dataVal");
     setShopKart(checkoutData);
   };
-  console.log(fireData, "king");
   return (
     <>
       <Navbar fireData={shopKart} />

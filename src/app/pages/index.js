@@ -19,7 +19,7 @@ const slide = () => {
         backgroundImage={"/bg1.jpeg"}
         headerText="Diwali Celebration Sale"
         subheaderText="The Biggest Deals of the Year!"
-        buttonText="Contact Us"
+        buttonText="Shop Us"
         mobileBackgroundImage={"/mobileBg1.png"}
       />
     </>
@@ -32,7 +32,7 @@ const slide1 = () => {
         backgroundImage={"/bg2.jpeg"}
         headerText="Diwali Mega Sale"
         subheaderText="Get Up to 85% Off on Every Product!"
-        buttonText="Contact Us"
+        buttonText="Shop Us"
         mobileBackgroundImage={"/mobileBg2.png"}
       />
     </>
@@ -45,7 +45,7 @@ const slide2 = () => {
         backgroundImage={"/bg3.jpeg"}
         headerText="Diwali Celebration Sale"
         subheaderText="Mega Sale with Exciting Limited-Time Deals!"
-        buttonText="Contact Us"
+        buttonText="Shop Us"
         mobileBackgroundImage={"/mobileBg3.png"}
       />
     </>

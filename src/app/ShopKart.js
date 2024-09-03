@@ -17,7 +17,7 @@ function ShopKart({ setOpen, open, fireData }) {
       try {
         // Parse the JSON string back into an array of objects
         const storedArray = JSON.parse(storedArrayString);
-        setShopKartData(storedArray);
+        setShopKartData(storedArray || []);
         console.log(storedArray, ";;;"); // [{ key: "apple" }, { key: "banana" }, { key: "cherry" }]
       } catch (error) {
         console.error("Failed to parse JSON:", error);
@@ -45,93 +45,111 @@ function ShopKart({ setOpen, open, fireData }) {
         <span className={Styles.closeIcon} onClick={() => setOpen(!open)}>
           &times;
         </span>
-        <div style={{ maxWidth: "595px", width: "100%" }}>
-          <div className={Styles.shopKartWrapper}>
-            {shopKartData.map((item) => (
-              <div key={item.key} className={Styles.shopKartCard}>
-                <Image
-                  src={item.imagePic}
-                  alt={item.title}
-                  style={{ width: "80px", height: "80px" }}
-                />
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    width: "100%",
-                  }}
-                >
-                  <div>
-                    <span className={Styles.shopkartCardTitle}>
-                      {item.title}
-                    </span>
-                    <br />
-                    <span className={Styles.shopkartCardSubTitle}>
-                      {item.size}
-                    </span>
+        <div
+          style={
+            shopKartData.length === 0
+              ? {
+                  maxWidth: "595px",
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }
+              : { maxWidth: "595px", width: "100%" }
+          }
+        >
+          {shopKartData.length === 0 ? (
+            "Yet No item Added in a Cart"
+          ) : (
+            <>
+              <div className={Styles.shopKartWrapper}>
+                {shopKartData.map((item) => (
+                  <div key={item.key} className={Styles.shopKartCard}>
+                    <Image
+                      src={item.imagePic}
+                      alt={item.title}
+                      style={{ width: "80px", height: "80px" }}
+                    />
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        width: "100%",
+                      }}
+                    >
+                      <div>
+                        <span className={Styles.shopkartCardTitle}>
+                          {item.title}
+                        </span>
+                        <br />
+                        <span className={Styles.shopkartCardSubTitle}>
+                          {item.size}
+                        </span>
+                      </div>
+                      <div className={Styles.cardQuantity}>
+                        <Image src={minus} alt="minus" />
+                        <span>{item.count}</span>
+                        <Image src={add} alt="add" />
+                      </div>
+                      <span className={Styles.cardPrice}>{item.cardPrice}</span>
+                      <Image
+                        src={deletes}
+                        alt="delete"
+                        onClick={() => removeData(item.key)}
+                      />
+                    </div>
                   </div>
-                  <div className={Styles.cardQuantity}>
-                    <Image src={minus} alt="minus" />
-                    <span>{item.count}</span>
-                    <Image src={add} alt="add" />
-                  </div>
-                  <span className={Styles.cardPrice}>{item.cardPrice}</span>
-                  <Image
-                    src={deletes}
-                    alt="delete"
-                    onClick={() => removeData(item.key)}
-                  />
+                ))}
+              </div>
+              <div
+                style={{
+                  maxWidth: "595px",
+                  width: "100%",
+                  marginTop: "30px",
+                  display: "flex",
+                  justifyContent: "center",
+                  marginBottom: "10px",
+                }}
+              >
+                <div className={Styles.shopKartCardPrice}>
+                  <span className={Styles.shopkartCardPriceKey}>Net Total</span>
+                  <span className={Styles.shopkartCardPriceKey}>₹ 499</span>
                 </div>
               </div>
-            ))}
-          </div>
-          <div
-            style={{
-              maxWidth: "595px",
-              width: "100%",
-              marginTop: "30px",
-              display: "flex",
-              justifyContent: "center",
-              marginBottom: "10px",
-            }}
-          >
-            <div className={Styles.shopKartCardPrice}>
-              <span className={Styles.shopkartCardPriceKey}>Net Total</span>
-              <span className={Styles.shopkartCardPriceKey}>₹ 499</span>
-            </div>
-          </div>
-          <div
-            style={{
-              maxWidth: "595px",
-              width: "100%",
-              marginBottom: "10px",
-              display: "flex",
-              justifyContent: "center",
-            }}
-          >
-            <div className={Styles.shopKartCardPrice}>
-              <span className={Styles.shopkartCardPriceKey}>Discount</span>
-              <span className={Styles.shopkartCardPriceKey}>₹ 499</span>
-            </div>
-          </div>
-          <div
-            style={{
-              maxWidth: "595px",
-              width: "100%",
-              marginBottom: "10px",
-              display: "flex",
-              justifyContent: "center",
-            }}
-          >
-            <div className={Styles.shopKartCardPrice}>
-              <span className={Styles.shopkartCardPriceKey}>Sub Total</span>
-              <span className={Styles.shopkartCardPriceKey}>₹ 499</span>
-            </div>
-          </div>
-          <button className={Styles.ContactBtn} onClick={() => navigate()}>
-            Confirm Estimation
-          </button>
+              <div
+                style={{
+                  maxWidth: "595px",
+                  width: "100%",
+                  marginBottom: "10px",
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
+                <div className={Styles.shopKartCardPrice}>
+                  <span className={Styles.shopkartCardPriceKey}>Discount</span>
+                  <span className={Styles.shopkartCardPriceKey}>₹ 499</span>
+                </div>
+              </div>
+              <div
+                style={{
+                  maxWidth: "595px",
+                  width: "100%",
+                  marginBottom: "10px",
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
+                <div className={Styles.shopKartCardPrice}>
+                  <span className={Styles.shopkartCardPriceKey}>Sub Total</span>
+                  <span className={Styles.shopkartCardPriceKey}>₹ 499</span>
+                </div>
+              </div>
+              <button className={Styles.ContactBtn} onClick={() => navigate()}>
+                Confirm Estimation
+              </button>
+            </>
+          )}
         </div>
         <div
           style={{

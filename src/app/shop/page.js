@@ -143,7 +143,7 @@ const Shop = () => {
         backgroundImage={"/shopBg.jpeg"}
         headerText="Shop Now! For Unforgettable"
         subheaderText="Fireworks"
-        buttonText="Contact Us"
+        buttonText="shop Us"
         mobileBackgroundImage={"/mobileShopBg.png"}
       />
       <div
@@ -216,7 +216,15 @@ const Shop = () => {
                   >
                     {/* card component start here */}
                     {sparklersData?.map((sparkler) => (
-                      <div key={sparkler.id} className={Styles.card}>
+                      <div
+                        key={sparkler.id}
+                        className={Styles.card}
+                        style={
+                          sparkler?.Selection
+                            ? { border: "1px solid #E4C36C" }
+                            : {}
+                        }
+                      >
                         <div className={Styles.cardImageBackground}>
                           <div
                             style={backgroundImageStyle(sparkler?.image)}

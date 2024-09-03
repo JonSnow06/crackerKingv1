@@ -347,6 +347,12 @@
   gap: 40px;
 }
 @media (max-width: 550px) {
+  .homeBulkSaving {
+    padding: 0px 10px 0px 10px;
+  }
+  .homeContainer {
+    padding: 0px 10px 0px 10px;
+  }
   .crackerKingCard {
     text-align: center;
   }
@@ -362,5 +368,14 @@
   .experienceFilterContainer {
     gap: 0px;
     flex-wrap: wrap;
+  }
+  .bulksavingHeader {
+    font-size: 22px;
+  }
+  .bulksavingDesc {
+    font-size: 14px;
+  }
+  .bulksavingBtn {
+    font-size: 17px;
   }
 }
