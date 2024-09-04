@@ -8,11 +8,16 @@ import download from "../assets/download.svg";
 import menuIcon from "../assets/menuBar.svg";
 import ShopKart from "../ShopKart";
 import { useEffect, useState } from "react";
+import { usePrevious } from "../helper";
 
 const Navbar = ({ fireData = [] }) => {
   const [open, setOpen] = useState(false);
   const [mobileNavBar, setMobileNavBar] = useState(false);
   const [count, setCount] = useState(0);
+  const storedArrayString = sessionStorage.getItem("cartCount") || 0;
+  useEffect(() => {
+    setCount(storedArrayString);
+  }, [storedArrayString]);
 
   return (
     <>
@@ -51,9 +56,7 @@ const Navbar = ({ fireData = [] }) => {
                 style={{ cursor: "pointer" }}
                 onClick={() => setOpen(!open)}
               />
-              {fireData.length > 0 && (
-                <span className={Styles.cartCount}>{fireData.length}</span>
-              )}
+              {count > 0 && <span className={Styles.cartCount}>{count}</span>}
             </div>
             <Image
               src={menuIcon}
@@ -68,7 +71,6 @@ const Navbar = ({ fireData = [] }) => {
           <div className={Styles.navBarLinksTable}>
             <div className={Styles.closeIcon}>
               <span onClick={() => setMobileNavBar(!mobileNavBar)}>
-                {" "}
                 &times;
               </span>
             </div>
@@ -96,7 +98,7 @@ const Navbar = ({ fireData = [] }) => {
           </div>
         </div>
       )}
-      {open && <ShopKart open={open} setOpen={setOpen} fireData={fireData} />}
+      {open && <ShopKart open={open} setOpen={setOpen} setCount={setCount} />}
     </>
   );
 };

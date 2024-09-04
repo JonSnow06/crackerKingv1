@@ -33,6 +33,32 @@ const Shop = () => {
   const prevInputValue = usePrevious(inputValue);
 
   useEffect(() => {
+    const storedArrayString = sessionStorage.getItem("cartData");
+    if (storedArrayString) {
+      try {
+        const storedArray = JSON.parse(storedArrayString);
+        fireData.forEach((category) => {
+          category.sparklersData.forEach((sparkler) => {
+            const matchingProduct = storedArray.find(
+              (product) => product.title === sparkler.title
+            );
+
+            if (matchingProduct) {
+              // Update the sparkler object with matching product data
+              sparkler.Selection = matchingProduct.Selection;
+              sparkler.count = matchingProduct.count;
+            }
+          });
+        });
+
+        setFirerData(fireData);
+      } catch (error) {
+        console.error("Failed to parse JSON:", error);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
     if (prevInputValue !== inputValue && inputValue !== "") {
       const filteredVal = fireData.map((item) => {
         return {
@@ -111,7 +137,12 @@ const Shop = () => {
     const checkoutData = dataVal.filter((item) => item?.Selection === true);
     const arrayString = JSON.stringify(checkoutData);
     sessionStorage.setItem("cartData", arrayString);
-    // console.log(checkoutData, "dataVal");
+    let dataCount = checkoutData.length;
+    const oldData = JSON.parse(sessionStorage.getItem("cartCount")) || "";
+    // if (oldData.toString() !== "") {
+    //   dataCount = oldData + dataCount;
+    // }
+    sessionStorage.setItem("cartCount", dataCount);
     setShopKart(checkoutData);
   };
 
@@ -194,11 +225,11 @@ const Shop = () => {
                             value={option}
                             setOption={setOption}
                           />
-                          <Autocomplete
+                          {/* <Autocomplete
                             suggestions={suggestions}
                             value={inputValue}
                             onChange={handleChange}
-                          />
+                          /> */}
                         </div>
                       )}
                     </div>

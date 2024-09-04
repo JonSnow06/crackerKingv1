@@ -7,7 +7,7 @@ import minus from "./assets/counterMinus.svg";
 import deletes from "./assets/delete.svg";
 import Image from "next/image";
 
-function ShopKart({ setOpen, open, fireData }) {
+function ShopKart({ setOpen, open, setCount }) {
   const router = useRouter();
   const [shopKartData, setShopKartData] = useState([]);
 
@@ -17,8 +17,7 @@ function ShopKart({ setOpen, open, fireData }) {
       try {
         // Parse the JSON string back into an array of objects
         const storedArray = JSON.parse(storedArrayString);
-        setShopKartData(storedArray || []);
-        console.log(storedArray, ";;;"); // [{ key: "apple" }, { key: "banana" }, { key: "cherry" }]
+        setShopKartData(storedArray || []); // [{ key: "apple" }, { key: "banana" }, { key: "cherry" }]
       } catch (error) {
         console.error("Failed to parse JSON:", error);
       }
@@ -27,7 +26,10 @@ function ShopKart({ setOpen, open, fireData }) {
 
   const removeData = (id) => {
     const data = shopKartData.filter((item) => item.key !== id);
+    setCount(data.length);
     setShopKartData(data);
+    sessionStorage.setItem("cartData", JSON.stringify(data));
+    sessionStorage.setItem("cartCount", data.length);
   };
 
   const navigate = () => {

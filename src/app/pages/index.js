@@ -62,7 +62,6 @@ const homePage = () => {
       width: "138px", // Adjust as needed
     };
   };
-  console.log(window.innerWidth, "king");
   return (
     <>
       <Navbar />

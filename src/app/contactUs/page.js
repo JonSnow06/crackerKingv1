@@ -64,7 +64,6 @@ const contactUs = () => {
     const dataVal = valData.flat();
     const checkoutData = dataVal.filter((item) => item?.Selection === true);
     sessionStorage.setItem("cartData", checkoutData);
-    // console.log(checkoutData, "dataVal");
     setShopKart(checkoutData);
   };
   return (
