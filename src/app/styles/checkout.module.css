@@ -131,7 +131,6 @@
 @media (max-width: 500px) {
   .CheckOutCityPincode {
     flex-wrap: wrap;
-    justify-content: center !important;
   }
   .CheckOutDetailsHeader {
     text-align: center;

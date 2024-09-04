@@ -80,7 +80,7 @@ const contactUs = () => {
         backgroundImage={"/contactUsBg.jpeg"}
         headerText="Enjoy Diwali’s Sale! "
         subheaderText="Cracker’s King"
-        mobileBackgroundImage={"/mobilecontactBg.png"}
+        mobileBackgroundImage={"/mobileContactBg.png"}
       />
 
       <div className={Styles.contactUsContainer}>
