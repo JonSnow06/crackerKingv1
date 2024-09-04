@@ -22,7 +22,7 @@
   display: flex;
   justify-content: center;
   gap: 20px;
-  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
 }
 .CheckOutDetailsWrapper {
   max-width: 555px;
@@ -132,5 +132,8 @@
   .CheckOutCityPincode {
     flex-wrap: wrap;
     justify-content: center !important;
+  }
+  .CheckOutDetailsHeader {
+    text-align: center;
   }
 }

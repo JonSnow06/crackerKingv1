@@ -28,9 +28,12 @@
 
 @media (max-width: 500px) {
   .inputField {
-    text-align: center;
+    display: flex;
   }
   .input {
     width: 200px !important;
+  }
+  .label {
+    width: 99px;
   }
 }

@@ -1,6 +1,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Styles from "../styles/contactUs.module.css";
+import leftshotcracker from "../assets/leftshotcracker.svg";
+import rightshotcracker from "../assets/rightshotcracker.svg";
 import youtube from "../assets/utube.svg";
 import facebook from "../assets/fb.svg";
 import instagram from "../assets/insta.svg";
@@ -111,6 +113,25 @@ const contactUs = () => {
           </div>
         </div>
         <Image src={map} className={Styles.contactUsMap} />
+      </div>
+
+      <div className={Styles.homeBulkSaving} style={{ paddingTop: "40px" }}>
+        <Image src={leftshotcracker} alt="leftshotcracker" />
+        <div className={Styles.bulkSavingWrapper}>
+          <p className={Styles.bulksavingHeader}>
+            Unlock Big Bulk Savings for Diwali
+          </p>
+          <p className={Styles.bulksavingDesc}>
+            Want better deals than everyone else? Contact us to discover special
+            discounts on bulk orders and make your Diwali
+            celebration truly amazing!
+          </p>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <button className={Styles.bulksavingBtn}>Quick Connect</button>
+          </div>
+        </div>
+
+        <Image src={rightshotcracker} alt="rightshotcracker" />
       </div>
 
       <Footer />

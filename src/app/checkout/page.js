@@ -99,9 +99,7 @@ const Checkout = () => {
       >
         <div className={Styles.CheckoutContainer}>
           <div className={Styles.CheckOutDetailsWrapper}>
-            <span className={Styles.CheckOutDetailsHeader}>
-              Booking Details
-            </span>
+            <p className={Styles.CheckOutDetailsHeader}>Booking Details</p>
             <br />
             <InputField
               label="Name"

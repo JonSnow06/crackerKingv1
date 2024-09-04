@@ -12,6 +12,8 @@ import CarouselComponent from "./CarouselComponent";
 import Navbar from "./navbar";
 import Footer from "./Footer";
 import Banner from "./banner";
+import GlobalCarousel from "./multiCarousal";
+import SwiperCarousel from "./multiCarousal";
 const slide = () => {
   return (
     <>
@@ -51,6 +53,7 @@ const slide2 = () => {
     </>
   );
 };
+
 const homePage = () => {
   const backgroundImageStyle = (imageUrl) => {
     return {
@@ -186,34 +189,38 @@ const homePage = () => {
                 flexWrap: "wrap",
               }}
             >
-              {reviewData.map((review) => (
-                <div key={review.id} className={Styles.reviewCard}>
-                  <span className={Styles.reviewCardQuote}>“</span>
-                  <div style={{ display: "flex", justifyContent: "center" }}>
-                    <p className={Styles.reviewCardDesc}>
-                      {review.description}
-                    </p>
+              <SwiperCarousel>
+                {reviewData.map((review) => (
+                  <div key={review.id} className={Styles.reviewCard}>
+                    <span className={Styles.reviewCardQuote}>“</span>
+                    <div style={{ display: "flex", justifyContent: "center" }}>
+                      <p className={Styles.reviewCardDesc}>
+                        {review.description}
+                      </p>
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        marginBottom: "34px",
+                      }}
+                    >
+                      <Image src={start} alt="genuine" />
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        gap: "10px",
+                      }}
+                    >
+                      <Image src={review.image} alt={review.name} />
+                      <span className={Styles.reviewCardName}>
+                        {review.name}
+                      </span>
+                    </div>
                   </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      marginBottom: "34px",
-                    }}
-                  >
-                    <Image src={start} alt="genuine" />
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      gap: "10px",
-                    }}
-                  >
-                    <Image src={review.image} alt={review.name} />
-                    <span className={Styles.reviewCardName}>{review.name}</span>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </SwiperCarousel>
             </div>
           </div>
           {/* fifth component */}

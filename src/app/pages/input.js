@@ -16,11 +16,10 @@ const InputField = ({
   return (
     <div className={styles.inputField}>
       {label && (
-        <label htmlFor={name} className={styles.label}>
+        <p htmlFor={name} className={styles.label}>
           {label}
-        </label>
+        </p>
       )}
-      <br />
       <input
         type={type}
         id={name}

@@ -75,7 +75,7 @@ export const reviewData = [
   {
     // quote: "“",
     description:
-      "The crackers were amazing! The colors and sounds were absolutely breathtaking. Delivery was on time and the packaging was secure. Definitely recommend!",
+      "I was hesitant to order crackers online but I'm so glad I did. The quality is top-notch and the variety is impressive. The website was easy to navigate & service was excellent.",
     image: priya, // Replace with the actual image path
     name: "Priya R",
   },
@@ -85,6 +85,34 @@ export const reviewData = [
       "I was hesitant to order crackers online but I'm so glad I did. The quality is top-notch and the variety is impressive. The website was easy to navigate & service was excellent.",
     image: rahul, // Replace with the actual image path
     name: "Rahul K",
+  },
+  {
+    // quote: "“",
+    description:
+      "Best Diwali ever! Thanks to Cracker’s King for the amazing crackers. The kids had a blast and the neighbors loved the show. Will definitely order again next year.",
+    image: meera, // Replace with the actual image path
+    name: "Meera",
+  },
+  {
+    // quote: "“",
+    description:
+      "I was hesitant to order crackers online but I'm so glad I did. The quality is top-notch and the variety is impressive. The website was easy to navigate & service was excellent.",
+    image: priya, // Replace with the actual image path
+    name: "Priya R",
+  },
+  {
+    // quote: "“",
+    description:
+      "I was hesitant to order crackers online but I'm so glad I did. The quality is top-notch and the variety is impressive. The website was easy to navigate & service was excellent.",
+    image: rahul, // Replace with the actual image path
+    name: "Rahul K",
+  },
+  {
+    // quote: "“",
+    description:
+      "Best Diwali ever! Thanks to Cracker’s King for the amazing crackers. The kids had a blast and the neighbors loved the show. Will definitely order again next year.",
+    image: meera, // Replace with the actual image path
+    name: "Meera",
   },
   {
     // quote: "“",
