@@ -22,9 +22,9 @@ const Shop = () => {
   const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
-    const router = useRouter();
-    const { message } = router.query;
-    console.log(message), "king";
+    // const router = useRouter();
+    // const { message } = router.query;
+    // console.log(message), "king";
     // Set hasMounted to true after the component mounts
     setHasMounted(true);
   }, []);
