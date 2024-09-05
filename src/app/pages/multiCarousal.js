@@ -4,9 +4,6 @@ import Styles from "../styles/multCarousal.module.css";
 import SwiperCore, { Autoplay } from "swiper";
 import "swiper/css";
 
-// Register the Autoplay module
-SwiperCore.use([Autoplay]);
-
 const SwiperCarousel = ({ children }) => (
   //   <div className={Styles.swiperContainer}>
   <Swiper
