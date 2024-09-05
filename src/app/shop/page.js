@@ -21,14 +21,6 @@ const Shop = () => {
   const [filteredData, setFilteredData] = useState([]);
   const [hasMounted, setHasMounted] = useState(false);
 
-  useEffect(() => {
-    // const router = useRouter();
-    // const { message } = router.query;
-    // console.log(message), "king";
-    // Set hasMounted to true after the component mounts
-    setHasMounted(true);
-  }, []);
-
   const backgroundImageStyle = (imageUrl) => {
     return {
       backgroundImage: `url(${imageUrl})`,
@@ -63,7 +55,7 @@ const Shop = () => {
         console.error("Failed to parse JSON:", error);
       }
     }
-  }, [hasMounted]);
+  }, []);
 
   useEffect(() => {
     if (prevInputValue !== inputValue && inputValue !== "") {
