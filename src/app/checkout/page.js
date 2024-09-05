@@ -24,7 +24,7 @@ const Checkout = () => {
   const [shopKartData, setShopKartData] = useState([]);
 
   useEffect(() => {
-    const storedArrayString = sessionStorage.getItem("shopKartData");
+    const storedArrayString = sessionStorage.getItem("shopKartData") || "[]";
     if (storedArrayString) {
       try {
         // Parse the JSON string back into an array of objects
