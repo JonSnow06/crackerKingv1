@@ -18,10 +18,13 @@ const Shop = () => {
   const [shopKart, setShopKart] = useState([]);
   const [option, setOption] = useState("");
   const [filteredData, setFilteredData] = useState([]);
+  const [hasMounted, setHasMounted] = useState(false);
 
-  // useEffect(() => {
-  //   setFirerData(CRACKER_DATA);
-  // }, []);
+  useEffect(() => {
+    // Set hasMounted to true after the component mounts
+    setHasMounted(true);
+  }, []);
+
   const backgroundImageStyle = (imageUrl) => {
     return {
       backgroundImage: `url(${imageUrl})`,
@@ -56,7 +59,7 @@ const Shop = () => {
         console.error("Failed to parse JSON:", error);
       }
     }
-  }, []);
+  }, [hasMounted]);
 
   useEffect(() => {
     if (prevInputValue !== inputValue && inputValue !== "") {

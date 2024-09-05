@@ -22,6 +22,7 @@ const Checkout = () => {
   const [popupMessage, setPopupMessage] = useState("");
   const [showPopup, setShowPopup] = useState(false);
   const [shopKartData, setShopKartData] = useState([]);
+  const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
     // Set hasMounted to true after the component mounts

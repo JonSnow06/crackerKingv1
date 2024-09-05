@@ -10,6 +10,12 @@ import Image from "next/image";
 function ShopKart({ setOpen, open, setCount }) {
   const router = useRouter();
   const [shopKartData, setShopKartData] = useState([]);
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    // Set hasMounted to true after the component mounts
+    setHasMounted(true);
+  }, []);
 
   useEffect(() => {
     const storedArrayString = sessionStorage.getItem("cartData");
@@ -22,7 +28,7 @@ function ShopKart({ setOpen, open, setCount }) {
         console.error("Failed to parse JSON:", error);
       }
     }
-  }, []);
+  }, [hasMounted]);
 
   const removeData = (id) => {
     const data = shopKartData.filter((item) => item.key !== id);
