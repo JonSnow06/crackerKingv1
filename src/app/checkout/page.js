@@ -24,20 +24,22 @@ const Checkout = () => {
   const [shopKartData, setShopKartData] = useState([]);
 
   useEffect(() => {
-    const storedArrayString = sessionStorage.getItem("shopKartData") || "[]";
-    if (storedArrayString) {
-      try {
-        // Parse the JSON string back into an array of objects
-        const storedArray = JSON.parse(storedArrayString);
+    if (typeof window !== "undefined") {
+      const storedArrayString = sessionStorage.getItem("shopKartData") || "[]";
+      if (storedArrayString) {
+        try {
+          // Parse the JSON string back into an array of objects
+          const storedArray = JSON.parse(storedArrayString);
 
-        // Ensure the parsed data is an array before setting it to state
-        if (Array.isArray(storedArray.shopKartData)) {
-          setShopKartData(storedArray.shopKartData);
-        } else {
-          console.error("Stored data is not an array", storedArray);
+          // Ensure the parsed data is an array before setting it to state
+          if (Array.isArray(storedArray.shopKartData)) {
+            setShopKartData(storedArray.shopKartData);
+          } else {
+            console.error("Stored data is not an array", storedArray);
+          }
+        } catch (error) {
+          console.error("Failed to parse JSON:", error);
         }
-      } catch (error) {
-        console.error("Failed to parse JSON:", error);
       }
     }
   }, []);
