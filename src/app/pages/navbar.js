@@ -14,10 +14,10 @@ const Navbar = ({ fireData = [] }) => {
   const [open, setOpen] = useState(false);
   const [mobileNavBar, setMobileNavBar] = useState(false);
   const [count, setCount] = useState(0);
-  const storedArrayString = sessionStorage.getItem("cartCount") || 0;
   useEffect(() => {
+    const storedArrayString = sessionStorage.getItem("cartCount") || 0;
     setCount(storedArrayString);
-  }, [storedArrayString]);
+  }, []);
 
   return (
     <>
