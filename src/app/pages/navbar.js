@@ -17,7 +17,7 @@ const Navbar = ({ fireData = [] }) => {
   useEffect(() => {
     const storedArrayString = sessionStorage.getItem("cartCount") || 0;
     setCount(storedArrayString);
-  }, []);
+  }, [fireData]);
 
   return (
     <>

@@ -14,6 +14,8 @@ import Footer from "./Footer";
 import Banner from "./banner";
 import GlobalCarousel from "./multiCarousal";
 import SwiperCarousel from "./multiCarousal";
+import { useRouter } from "next/router";
+
 const slide = () => {
   return (
     <>
@@ -55,6 +57,7 @@ const slide2 = () => {
 };
 
 const homePage = () => {
+  const router = useRouter();
   const backgroundImageStyle = (imageUrl) => {
     return {
       backgroundImage: `url(${imageUrl})`,
@@ -62,6 +65,7 @@ const homePage = () => {
       width: "138px", // Adjust as needed
     };
   };
+
   return (
     <>
       <Navbar />
@@ -88,7 +92,15 @@ const homePage = () => {
                 flexWrap: "wrap",
               }}
             >
-              <div className={Styles.crackersCard}>
+              <div
+                className={Styles.crackersCard}
+                onClick={() =>
+                  router.push({
+                    pathname: "/page2",
+                    query: { message: "Hello, World!" },
+                  })
+                }
+              >
                 <div style={backgroundImageStyle("/crackerImage.svg")}></div>
                 <p className={Styles.crackerTitle}>Crackers</p>
               </div>

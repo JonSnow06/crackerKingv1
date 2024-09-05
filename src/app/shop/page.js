@@ -11,6 +11,7 @@ import Dropdown from "../pages/dropdown";
 import Autocomplete from "../pages/AutoComplete";
 import { usePrevious } from "../helper";
 import Banner from "../pages/banner";
+import { useRouter } from "next/router";
 // Example Slide Components
 
 const Shop = () => {
@@ -21,6 +22,9 @@ const Shop = () => {
   const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
+    const router = useRouter();
+    const { message } = router.query;
+    console.log(message), "king";
     // Set hasMounted to true after the component mounts
     setHasMounted(true);
   }, []);
