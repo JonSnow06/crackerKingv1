@@ -24,14 +24,18 @@ const Checkout = () => {
   const [shopKartData, setShopKartData] = useState([]);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
+    // Set hasMounted to true after the component mounts
+    setHasMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (hasMounted) {
+      // Only run this code when the component is mounted on the client-side
       const storedArrayString = sessionStorage.getItem("shopKartData") || "[]";
       if (storedArrayString) {
         try {
-          // Parse the JSON string back into an array of objects
           const storedArray = JSON.parse(storedArrayString);
 
-          // Ensure the parsed data is an array before setting it to state
           if (Array.isArray(storedArray.shopKartData)) {
             setShopKartData(storedArray.shopKartData);
           } else {
@@ -42,7 +46,7 @@ const Checkout = () => {
         }
       }
     }
-  }, []);
+  }, [hasMounted]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
