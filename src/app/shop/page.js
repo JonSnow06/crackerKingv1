@@ -37,6 +37,13 @@ const Shop = () => {
   const prevInputValue = usePrevious(inputValue);
 
   useEffect(() => {
+    const filterData = sessionStorage.getItem("filterData");
+    if (filterData) {
+      handleSelect(filterData);
+    }
+  }, []);
+
+  useEffect(() => {
     const storedArrayString = sessionStorage.getItem("cartData");
     if (storedArrayString) {
       try {
@@ -61,22 +68,6 @@ const Shop = () => {
       }
     }
   }, [hasMounted]);
-
-  useEffect(() => {
-    if (prevInputValue !== inputValue && inputValue !== "") {
-      const filteredVal = fireData.map((item) => {
-        return {
-          ...item,
-          sparklersData: item?.sparklersData.filter(
-            (item) => item.title === inputValue
-          ),
-        };
-      });
-      setFirerData(filteredVal);
-    } else if (inputValue === "" && prevInputValue !== inputValue) {
-      setFirerData(CRACKER_DATA);
-    }
-  }, [inputValue]);
 
   const suggestions = [
     "flowerSpot1",
@@ -153,6 +144,24 @@ const Shop = () => {
   const handleSelect = (data) => {
     setOption(data);
     if (data === "") {
+      const storedArrayString = sessionStorage.getItem("cartData") || "";
+      if (storedArrayString !== "") {
+        const storedArray = JSON.parse(storedArrayString);
+        fireData.forEach((category) => {
+          category.sparklersData.forEach((sparkler) => {
+            const matchingProduct = storedArray.find(
+              (product) => product.title === sparkler.title
+            );
+
+            if (matchingProduct) {
+              // Update the sparkler object with matching product data
+              sparkler.Selection = matchingProduct.Selection;
+              sparkler.count = matchingProduct.count;
+            }
+          });
+        });
+        setFirerData(fireData);
+      }
       setFirerData(CRACKER_DATA);
     } else if (
       ["forChildren", "newArrivals", "fancyItems", "bestSellers"].includes(data)
@@ -166,6 +175,7 @@ const Shop = () => {
         };
       });
       setFirerData(filteredVal);
+      sessionStorage.setItem("filterData", "");
     } else {
       document.getElementById(data).scrollIntoView({ behavior: "smooth" });
     }

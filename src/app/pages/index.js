@@ -12,9 +12,8 @@ import CarouselComponent from "./CarouselComponent";
 import Navbar from "./navbar";
 import Footer from "./Footer";
 import Banner from "./banner";
-import GlobalCarousel from "./multiCarousal";
 import SwiperCarousel from "./multiCarousal";
-
+import { useRouter } from "next/navigation";
 const slide = () => {
   return (
     <>
@@ -56,12 +55,20 @@ const slide2 = () => {
 };
 
 const homePage = () => {
+  const router = useRouter();
   const backgroundImageStyle = (imageUrl) => {
     return {
       backgroundImage: `url(${imageUrl})`,
       height: "143px", // Adjust as needed
-      width: "138px", // Adjust as needed
+      width: "170px", // Adjust as needed
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover",
     };
+  };
+
+  const navigateShop = async (id) => {
+    sessionStorage.setItem("filterData", id);
+    router.push("/shop");
   };
 
   return (
@@ -92,23 +99,31 @@ const homePage = () => {
             >
               <div
                 className={Styles.crackersCard}
-                // onClick={() =>
-                //   router.push({
-                //     pathname: "/page2",
-                //     query: { message: "Hello, World!" },
-                //   })
-                // }
+                onClick={() => navigateShop("bestSellers")}
               >
-                <div style={backgroundImageStyle("/crackerImage.svg")}></div>
-                <p className={Styles.crackerTitle}>Crackers</p>
+                <div style={backgroundImageStyle("/bestSeller.svg")}></div>
+                <p className={Styles.crackerTitle}>Best Seller</p>
               </div>
-              <div className={Styles.crackersCard}>
-                <div style={backgroundImageStyle("/crackerImage.svg")}></div>
-                <p className={Styles.crackerTitle}>Crackers</p>
+              <div
+                className={Styles.crackersCard}
+                onClick={() => navigateShop("forChildren")}
+              >
+                <div style={backgroundImageStyle("/kids.png")}></div>
+                <p className={Styles.crackerTitle}>Kids Special</p>
               </div>
-              <div className={Styles.crackersCard}>
-                <div style={backgroundImageStyle("/crackerImage.svg")}></div>
-                <p className={Styles.crackerTitle}>Crackers</p>
+              <div
+                className={Styles.crackersCard}
+                onClick={() => navigateShop("newArrivals")}
+              >
+                <div style={backgroundImageStyle("/newArrival.svg")}></div>
+                <p className={Styles.crackerTitle}>New Arrivals</p>
+              </div>
+              <div
+                className={Styles.crackersCard}
+                onClick={() => navigateShop("fancyItems")}
+              >
+                <div style={backgroundImageStyle("/fancy.svg")}></div>
+                <p className={Styles.crackerTitle}>Fancy</p>
               </div>
             </div>
           </div>
