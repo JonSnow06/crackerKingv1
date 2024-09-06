@@ -9,8 +9,10 @@ import menuIcon from "../assets/menuBar.svg";
 import ShopKart from "../ShopKart";
 import { useEffect, useState } from "react";
 import { usePrevious } from "../helper";
+import { useRouter } from "next/navigation";
 
 const Navbar = ({ fireData = [] }) => {
+  const router = useRouter();
   const [open, setOpen] = useState(false);
   const [mobileNavBar, setMobileNavBar] = useState(false);
   const [count, setCount] = useState(0);
@@ -19,11 +21,19 @@ const Navbar = ({ fireData = [] }) => {
     setCount(storedArrayString);
   }, [fireData]);
 
+  const handleDownload = () => {
+    const link = document.createElement("a");
+    link.href =
+      "https://drive.google.com/uc?export=download&id=1cjyo9oQryTIMGMLf9uZZvbO-_isQculh"; // Direct download link
+    link.download = "PriceList.pdf"; // Optional: Rename the file when downloaded
+    link.click();
+  };
+
   return (
     <>
       <nav className={Styles.navbar}>
         <div className={Styles.navBarDesign}>
-          <Image src={crackerKing} />
+          <Image src={crackerKing} onClick={() => router.push("/")} />
           <div className={Styles.navBarLinksContainer}>
             <Link href="/">
               <span className={Styles.navBarLinks}>Home</span>
@@ -46,6 +56,7 @@ const Navbar = ({ fireData = [] }) => {
             <button
               className={Styles.NavContactBtn}
               style={{ cursor: "pointer" }}
+              onClick={handleDownload}
             >
               <Image src={download} />
               Price List
