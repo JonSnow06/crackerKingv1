@@ -7,6 +7,7 @@ import Footer from "../pages/Footer";
 import Navbar from "../pages/navbar";
 import Popup from "../pages/popup"; // Import the Popup component
 import Banner from "../pages/banner";
+import Script from "next/script";
 
 const Checkout = () => {
   const [formData, setFormData] = useState({
@@ -70,16 +71,51 @@ const Checkout = () => {
     }
   };
 
-  const handleSubmit = () => {
-    const allFieldsFilled = Object.values(formData).every(
-      (field) => field !== ""
-    );
+  const sendEmail = () => {
+    //  if (!file) {
+    //    alert("Please select a file.");
+    //    return;
+    //  }
+    //  const reader = new FileReader();
+    //  reader.readAsDataURL(file);
+    //  reader.onload = function () {
+    //    const base64File = reader.result.split(",")[1];
 
-    if (!allFieldsFilled) {
-      setPopupMessage("Please fill in all the fields.");
-    } else {
-      setPopupMessage("Your order has been submitted.");
-    }
+    // Use SMTPJS to send email with attachment
+    window.Email.send({
+      Host: "smtp.elasticemail.com", // Replace with your SMTP host
+      Username: "snowtageriyan@gmail.com", // Replace with your email
+      Password: "CD3AE3E10DCBE1520077E13C075897B1C8BF", // Replace with your SMTP password
+      To: "aravind.mce21@gmail.com",
+      From: "snowtageriyan@gmail.com",
+      Subject: "Test Email with Attachment",
+      Body: "This is a test email sent from Next.js using SMTPJS.",
+      //  Attachments: [
+      //    {
+      //      name: file.name, // File name
+      //      data: base64File, // Base64 encoded file
+      //    },
+      //  ],
+    })
+      .then((message) => {
+        alert("Email sent successfully: " + message);
+      })
+      .catch((error) => {
+        console.error("Error sending email:", error);
+      });
+  };
+
+  const handleSubmit = () => {
+    // const allFieldsFilled = Object.values(formData).every(
+    //   (field) => field !== ""
+    // );
+
+    // if (!allFieldsFilled) {
+    //   setPopupMessage("Please fill in all the fields.");
+    // } else {
+    // setPopupMessage("Your order has been submitted.");
+    sendEmail();
+    // }
     setShowPopup(true);
   };
 
@@ -89,6 +125,7 @@ const Checkout = () => {
 
   return (
     <>
+      <Script src="https://smtpjs.com/v3/smtp.js" />
       <Navbar />
       <Banner
         backgroundImage={"/checkoutBg.jpeg"}
