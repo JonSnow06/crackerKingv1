@@ -108,7 +108,7 @@ const homePage = () => {
                 className={Styles.crackersCard}
                 onClick={() => navigateShop("forChildren")}
               >
-                <div style={backgroundImageStyle("/kids.png")}></div>
+                <div style={backgroundImageStyle("/kids.svg")}></div>
                 <p className={Styles.crackerTitle}>Kids Special</p>
               </div>
               <div
