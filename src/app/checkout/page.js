@@ -90,12 +90,6 @@ const Checkout = () => {
       From: "snowtageriyan@gmail.com",
       Subject: "Test Email with Attachment",
       Body: "This is a test email sent from Next.js using SMTPJS.",
-      //  Attachments: [
-      //    {
-      //      name: file.name, // File name
-      //      data: base64File, // Base64 encoded file
-      //    },
-      //  ],
     })
       .then((message) => {
         alert("Email sent successfully: " + message);
