@@ -101,28 +101,28 @@ const homePage = () => {
                 className={Styles.crackersCard}
                 onClick={() => navigateShop("bestSellers")}
               >
-                <div style={backgroundImageStyle("/bestSeller.svg")}></div>
+                <div style={backgroundImageStyle("/crackerImage.svg")}></div>
                 <p className={Styles.crackerTitle}>Best Seller</p>
               </div>
               <div
                 className={Styles.crackersCard}
                 onClick={() => navigateShop("forChildren")}
               >
-                <div style={backgroundImageStyle("/kids.svg")}></div>
+                <div style={backgroundImageStyle("/crackerImage.svg")}></div>
                 <p className={Styles.crackerTitle}>Kids Special</p>
               </div>
               <div
                 className={Styles.crackersCard}
                 onClick={() => navigateShop("newArrivals")}
               >
-                <div style={backgroundImageStyle("/newArrival.svg")}></div>
+                <div style={backgroundImageStyle("/crackerImage.svg")}></div>
                 <p className={Styles.crackerTitle}>New Arrivals</p>
               </div>
               <div
                 className={Styles.crackersCard}
                 onClick={() => navigateShop("fancyItems")}
               >
-                <div style={backgroundImageStyle("/fancy.svg")}></div>
+                <div style={backgroundImageStyle("/crackerImage.svg")}></div>
                 <p className={Styles.crackerTitle}>Fancy</p>
               </div>
             </div>
