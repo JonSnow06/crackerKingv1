@@ -18,11 +18,15 @@ const slide = () => {
   return (
     <>
       <Banner
-        backgroundImage={"/bg1.jpeg"}
+        backgroundImage={
+          "https://crackerskingsassets.s3.ap-south-1.amazonaws.com/Homepage_hero.png"
+        }
         headerText="Diwali Celebration Sale"
         subheaderText="The Biggest Deals of the Year!"
         buttonText="Shop Us"
-        mobileBackgroundImage={"/mobileBg1.png"}
+        mobileBackgroundImage={
+          "https://crackerskingsassets.s3.ap-south-1.amazonaws.com/Homepage_mobile_banner1.svg"
+        }
       />
     </>
   );
@@ -31,11 +35,15 @@ const slide1 = () => {
   return (
     <>
       <Banner
-        backgroundImage={"/bg2.jpeg"}
+        backgroundImage={
+          "https://crackerskingsassets.s3.ap-south-1.amazonaws.com/Homepage_banner2.png"
+        }
         headerText="Diwali Mega Sale"
         subheaderText="Get Up to 85% Off on Every Product!"
         buttonText="Shop Us"
-        mobileBackgroundImage={"/mobileBg2.png"}
+        mobileBackgroundImage={
+          "https://crackerskingsassets.s3.ap-south-1.amazonaws.com/Homepage_mobile_banner2.svg"
+        }
       />
     </>
   );
@@ -44,11 +52,15 @@ const slide2 = () => {
   return (
     <>
       <Banner
-        backgroundImage={"/bg3.jpeg"}
+        backgroundImage={
+          "https://crackerskingsassets.s3.ap-south-1.amazonaws.com/Homepage_banner3.png"
+        }
         headerText="Diwali Celebration Sale"
         subheaderText="Mega Sale with Exciting Limited-Time Deals!"
         buttonText="Shop Us"
-        mobileBackgroundImage={"/mobileBg3.png"}
+        mobileBackgroundImage={
+          "https://crackerskingsassets.s3.ap-south-1.amazonaws.com/Homepage_mobile_banner3.svg"
+        }
       />
     </>
   );
@@ -101,28 +113,48 @@ const homePage = () => {
                 className={Styles.crackersCard}
                 onClick={() => navigateShop("bestSellers")}
               >
-                <div style={backgroundImageStyle("/crackerImage.svg")}></div>
+                <div
+                  style={backgroundImageStyle(
+                    "https://crackerskingsassets.s3.ap-south-1.amazonaws.com/best+sellers.svg"
+                  )}
+                ></div>
                 <p className={Styles.crackerTitle}>Best Seller</p>
               </div>
               <div
                 className={Styles.crackersCard}
                 onClick={() => navigateShop("forChildren")}
               >
-                <div style={backgroundImageStyle("/crackerImage.svg")}></div>
+                <div
+                  style={backgroundImageStyle(
+                    "https://crackerskingsassets.s3.ap-south-1.amazonaws.com/kids+special.svg"
+                  )}
+                ></div>
                 <p className={Styles.crackerTitle}>Kids Special</p>
               </div>
               <div
                 className={Styles.crackersCard}
-                onClick={() => navigateShop("newArrivals")}
+                onClick={() =>
+                  navigateShop(
+                    "https://crackerskingsassets.s3.ap-south-1.amazonaws.com/new+arrivals.svg"
+                  )
+                }
               >
-                <div style={backgroundImageStyle("/crackerImage.svg")}></div>
+                <div
+                  style={backgroundImageStyle(
+                    "https://crackerskingsassets.s3.ap-south-1.amazonaws.com/new+arrivals.svg"
+                  )}
+                ></div>
                 <p className={Styles.crackerTitle}>New Arrivals</p>
               </div>
               <div
                 className={Styles.crackersCard}
                 onClick={() => navigateShop("fancyItems")}
               >
-                <div style={backgroundImageStyle("/crackerImage.svg")}></div>
+                <div
+                  style={backgroundImageStyle(
+                    "https://crackerskingsassets.s3.ap-south-1.amazonaws.com/fancy.svg"
+                  )}
+                ></div>
                 <p className={Styles.crackerTitle}>Fancy</p>
               </div>
             </div>
@@ -162,7 +194,12 @@ const homePage = () => {
             celebration truly amazing!
           </p>
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <button className={Styles.bulksavingBtn}>Quick Connect</button>
+            <button
+              className={Styles.bulksavingBtn}
+              style={{ cursor: "pointer" }}
+            >
+              Quick Connect
+            </button>
           </div>
         </div>
 

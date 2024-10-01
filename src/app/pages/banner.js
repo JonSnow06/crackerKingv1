@@ -40,7 +40,11 @@ const Banner = ({
         <h1 className={styles.headerText}>{headerText}</h1>
         <p className={styles.subheaderText}>{subheaderText}</p>
         {buttonText && (
-          <button className={styles.bannerButton} onClick={onButtonClick}>
+          <button
+            className={styles.bannerButton}
+            onClick={onButtonClick}
+            style={{ cursor: "pointer" }}
+          >
             {buttonText}
           </button>
         )}

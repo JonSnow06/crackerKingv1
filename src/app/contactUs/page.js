@@ -76,10 +76,14 @@ const contactUs = () => {
         </p>
       </div> */}
       <Banner
-        backgroundImage={"/contactUsBg.jpeg"}
+        backgroundImage={
+          "https://crackerskingsassets.s3.ap-south-1.amazonaws.com/contact_Banner.png"
+        }
         headerText="Enjoy Diwali’s Sale! "
         subheaderText="Cracker’s King"
-        mobileBackgroundImage={"/mobileContactBg.png"}
+        mobileBackgroundImage={
+          "https://crackerskingsassets.s3.ap-south-1.amazonaws.com/contact_mobile_Banner.svg"
+        }
       />
 
       <div className={Styles.contactUsContainer}>
@@ -125,8 +129,19 @@ const contactUs = () => {
             discounts on bulk orders and make your Diwali
             celebration truly amazing!
           </p>
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            <button className={Styles.bulksavingBtn}>Quick Connect</button>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              cursor: "pointer",
+            }}
+          >
+            <button
+              className={Styles.bulksavingBtn}
+              style={{ cursor: "pointer" }}
+            >
+              Quick Connect
+            </button>
           </div>
         </div>
 

@@ -71,45 +71,35 @@ const Checkout = () => {
     }
   };
 
-  const sendEmail = () => {
-    //  if (!file) {
-    //    alert("Please select a file.");
-    //    return;
-    //  }
-    //  const reader = new FileReader();
-    //  reader.readAsDataURL(file);
-    //  reader.onload = function () {
-    //    const base64File = reader.result.split(",")[1];
-
-    // Use SMTPJS to send email with attachment
-    window.Email.send({
-      Host: "smtp.elasticemail.com", // Replace with your SMTP host
-      Username: "snowtageriyan@gmail.com", // Replace with your email
-      Password: "CD3AE3E10DCBE1520077E13C075897B1C8BF", // Replace with your SMTP password
-      To: "aravind.mce21@gmail.com",
-      From: "snowtageriyan@gmail.com",
-      Subject: "Test Email with Attachment",
-      Body: "This is a test email sent from Next.js using SMTPJS.",
+  const sendEmail = (totalOfferPrice, shopKartData) => {
+    fetch("http://localhost:5000/users", {
+      method: "POST", // Change the method to POST
+      headers: {
+        "Content-Type": "application/json", // Set the content type to JSON
+      },
+      body: JSON.stringify({
+        // Add the data you want to send
+        totalOfferPrice,
+        shopKartData,
+        formData,
+      }),
     })
-      .then((message) => {
-        alert("Email sent successfully: " + message);
-      })
-      .catch((error) => {
-        console.error("Error sending email:", error);
-      });
+      .then((response) => response.json())
+      .then((data) => console.log(data)) // Handle the response data
+      .catch((error) => console.error("Error:", error)); // Handle any errors
   };
 
   const handleSubmit = () => {
-    // const allFieldsFilled = Object.values(formData).every(
-    //   (field) => field !== ""
-    // );
+    const allFieldsFilled = Object.values(formData).every(
+      (field) => field !== ""
+    );
 
-    // if (!allFieldsFilled) {
-    //   setPopupMessage("Please fill in all the fields.");
-    // } else {
-    // setPopupMessage("Your order has been submitted.");
-    sendEmail();
-    // }
+    if (!allFieldsFilled) {
+      setPopupMessage("Please fill in all the fields.");
+    } else {
+      setPopupMessage("Your order has been submitted.");
+      sendEmail(totalOfferPrice, shopKartData);
+    }
     setShowPopup(true);
   };
 
@@ -117,15 +107,27 @@ const Checkout = () => {
     setShowPopup(false);
   };
 
+  const totalOfferPrice = shopKartData.reduce(
+    (sum, item) => sum + parseFloat(item.totalPrice.replace("₹", "")),
+    0
+  );
+  const totalCardPrice = shopKartData.reduce(
+    (sum, item) => sum + parseFloat(item.totalCardPrice.replace("₹", "")),
+    0
+  );
+
   return (
     <>
-      <Script src="https://smtpjs.com/v3/smtp.js" />
       <Navbar />
       <Banner
-        backgroundImage={"/checkoutBg.jpeg"}
+        backgroundImage={
+          "https://crackerskingsassets.s3.ap-south-1.amazonaws.com/checkout_banner.png"
+        }
         headerText="Enjoy Diwali’s Sale! "
         subheaderText="Cracker’s King"
-        mobileBackgroundImage={"/mobileCheckOutBg.png"}
+        mobileBackgroundImage={
+          "https://crackerskingsassets.s3.ap-south-1.amazonaws.com/checkout_mobile_banner.svg"
+        }
       />
       <div
         style={{
@@ -208,7 +210,11 @@ const Checkout = () => {
               onChange={handleChange}
               value={formData.state}
             />
-            <button className={Styles.ContactBtn} onClick={handleSubmit}>
+            <button
+              className={Styles.ContactBtn}
+              onClick={handleSubmit}
+              style={{ cursor: "pointer" }}
+            >
               Submit Order
             </button>
           </div>
@@ -237,8 +243,7 @@ const Checkout = () => {
             <div
               style={{
                 display: "flex",
-                justifyContent: "center",
-                gap: "50px",
+                justifyContent: "space-between",
                 marginBottom: "10px",
               }}
             >
@@ -246,34 +251,29 @@ const Checkout = () => {
                 Net Total
               </span>
               <span className={Styles.checkoutCardSubTitlePrice}>
-                ₹26000.00
+                ₹ {totalCardPrice}
               </span>
             </div>
             <div
               style={{
                 display: "flex",
-                justifyContent: "center",
-                gap: "50px",
+                justifyContent: "space-between",
                 marginBottom: "10px",
+                fontWeight: "inherit",
+                fontSize: "18px",
               }}
             >
-              <span className={Styles.checkoutCardSubTitlePrice}>Discount</span>
-              <span className={Styles.checkoutCardSubTitlePrice}>
-                ₹26000.00
+              <span
+                className={Styles.checkoutCardSubTitlePrice}
+                style={{ fontWeight: "inherit", fontSize: "18px" }}
+              >
+                Grand Total(After Discount)
               </span>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                gap: "50px",
-              }}
-            >
-              <span className={Styles.checkoutCardSubTitlePrice}>
-                Sub Total
-              </span>
-              <span className={Styles.checkoutCardSubTitlePrice}>
-                ₹26000.00
+              <span
+                className={Styles.checkoutCardSubTitlePrice}
+                style={{ fontWeight: "inherit", fontSize: "18px" }}
+              >
+                ₹ {totalOfferPrice}
               </span>
             </div>
           </div>

@@ -13,7 +13,6 @@ function ShopKart({ setOpen, open, setCount }) {
   const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
-    // Set hasMounted to true after the component mounts
     setHasMounted(true);
   }, []);
 
@@ -21,9 +20,17 @@ function ShopKart({ setOpen, open, setCount }) {
     const storedArrayString = sessionStorage.getItem("cartData");
     if (storedArrayString) {
       try {
-        // Parse the JSON string back into an array of objects
         const storedArray = JSON.parse(storedArrayString);
-        setShopKartData(storedArray || []); // [{ key: "apple" }, { key: "banana" }, { key: "cherry" }]
+        const totalCountValue = storedArray.map((item) => ({
+          ...item,
+          totalPrice: (
+            parseFloat(item.offerPrice.replace("₹", "")) * item.count
+          ).toFixed(2),
+          totalCardPrice: (
+            parseFloat(item.cardPrice.replace("₹", "")) * item.count
+          ).toFixed(2),
+        }));
+        setShopKartData(totalCountValue || []);
       } catch (error) {
         console.error("Failed to parse JSON:", error);
       }
@@ -47,6 +54,16 @@ function ShopKart({ setOpen, open, setCount }) {
     );
     router.push("/checkout");
   };
+
+  const totalOfferPrice = shopKartData.reduce(
+    (sum, item) => sum + parseFloat(item.totalPrice.replace("₹", "")),
+    0
+  );
+  const totalCardPrice = shopKartData.reduce(
+    (sum, item) => sum + parseFloat(item.totalCardPrice.replace("₹", "")),
+    0
+  );
+  console.log(totalCardPrice, totalOfferPrice, shopKartData, "king");
   return (
     <div className={Styles.shopKartContainer}>
       <div className={Styles.shopModalWrapper}>
@@ -100,7 +117,9 @@ function ShopKart({ setOpen, open, setCount }) {
                         <span>{item.count}</span>
                         <Image src={add} alt="add" />
                       </div>
-                      <span className={Styles.cardPrice}>{item.cardPrice}</span>
+                      <span className={Styles.cardPrice}>
+                        {item.totalPrice}
+                      </span>
                       <Image
                         src={deletes}
                         alt="delete"
@@ -122,7 +141,9 @@ function ShopKart({ setOpen, open, setCount }) {
               >
                 <div className={Styles.shopKartCardPrice}>
                   <span className={Styles.shopkartCardPriceKey}>Net Total</span>
-                  <span className={Styles.shopkartCardPriceKey}>₹ 499</span>
+                  <span className={Styles.shopkartCardPriceKey}>
+                    ₹ {totalCardPrice}
+                  </span>
                 </div>
               </div>
               <div
@@ -135,25 +156,25 @@ function ShopKart({ setOpen, open, setCount }) {
                 }}
               >
                 <div className={Styles.shopKartCardPrice}>
-                  <span className={Styles.shopkartCardPriceKey}>Discount</span>
-                  <span className={Styles.shopkartCardPriceKey}>₹ 499</span>
+                  <span
+                    className={Styles.shopkartCardPriceKey}
+                    style={{ fontWeight: "inherit", fontSize: "18px" }}
+                  >
+                    Grand Total(After Discount)
+                  </span>
+                  <span
+                    className={Styles.shopkartCardPriceKey}
+                    style={{ fontWeight: "inherit", fontSize: "18px" }}
+                  >
+                    ₹{totalOfferPrice}
+                  </span>
                 </div>
               </div>
-              <div
-                style={{
-                  maxWidth: "595px",
-                  width: "100%",
-                  marginBottom: "10px",
-                  display: "flex",
-                  justifyContent: "center",
-                }}
+              <button
+                className={Styles.ContactBtn}
+                onClick={() => navigate()}
+                style={{ cursor: "pointer" }}
               >
-                <div className={Styles.shopKartCardPrice}>
-                  <span className={Styles.shopkartCardPriceKey}>Sub Total</span>
-                  <span className={Styles.shopkartCardPriceKey}>₹ 499</span>
-                </div>
-              </div>
-              <button className={Styles.ContactBtn} onClick={() => navigate()}>
                 Confirm Estimation
               </button>
             </>

@@ -29,8 +29,8 @@ const Shop = () => {
   const backgroundImageStyle = (imageUrl) => {
     return {
       backgroundImage: `url(${imageUrl})`,
-      height: "143px", // Adjust as needed
-      width: "138px", // Adjust as needed
+      height: "250px", // Adjust as needed
+      width: "250px", // Adjust as needed
     };
   };
   const [inputValue, setInputValue] = useState("");
@@ -133,10 +133,6 @@ const Shop = () => {
     const arrayString = JSON.stringify(checkoutData);
     sessionStorage.setItem("cartData", arrayString);
     let dataCount = checkoutData.length;
-    const oldData = JSON.parse(sessionStorage.getItem("cartCount")) || "";
-    // if (oldData.toString() !== "") {
-    //   dataCount = oldData + dataCount;
-    // }
     sessionStorage.setItem("cartCount", dataCount);
     setShopKart(checkoutData);
   };
@@ -154,7 +150,6 @@ const Shop = () => {
             );
 
             if (matchingProduct) {
-              // Update the sparkler object with matching product data
               sparkler.Selection = matchingProduct.Selection;
               sparkler.count = matchingProduct.count;
             }
@@ -185,11 +180,15 @@ const Shop = () => {
     <>
       <Navbar fireData={shopKart} />
       <Banner
-        backgroundImage={"/shopBg.jpeg"}
+        backgroundImage={
+          "https://crackerskingsassets.s3.ap-south-1.amazonaws.com/shop_Banner.png"
+        }
         headerText="Shop Now! For Unforgettable"
         subheaderText="Fireworks"
         buttonText="shop Us"
-        mobileBackgroundImage={"/mobileShopBg.png"}
+        mobileBackgroundImage={
+          "https://crackerskingsassets.s3.ap-south-1.amazonaws.com/shop_mobile_Banner.svg"
+        }
       />
       <div
         style={{
@@ -239,11 +238,6 @@ const Shop = () => {
                             value={option}
                             setOption={setOption}
                           />
-                          {/* <Autocomplete
-                            suggestions={suggestions}
-                            value={inputValue}
-                            onChange={handleChange}
-                          /> */}
                         </div>
                       )}
                     </div>
@@ -296,10 +290,10 @@ const Shop = () => {
                             }}
                           >
                             <p className={Styles.offerPrice}>
-                              {sparkler?.offerPrice}
+                              {sparkler?.cardPrice}
                             </p>
                             <span className={Styles.cardPrice}>
-                              {sparkler?.cardPrice}
+                              {sparkler?.offerPrice}
                             </span>
                           </div>
                         </div>

@@ -24,7 +24,7 @@ const Navbar = ({ fireData = [] }) => {
   const handleDownload = () => {
     const link = document.createElement("a");
     link.href =
-      "https://drive.google.com/uc?export=download&id=1cjyo9oQryTIMGMLf9uZZvbO-_isQculh"; // Direct download link
+      "https://crackerskingsassets.s3.ap-south-1.amazonaws.com/CRCKERS+KING+2024.pdf"; // Direct download link
     link.download = "PriceList.pdf"; // Optional: Rename the file when downloaded
     link.click();
   };

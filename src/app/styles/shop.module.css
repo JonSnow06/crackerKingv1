@@ -85,11 +85,12 @@
   color: #eae1d4;
   text-overflow: ellipsis;
   font-family: "Open Sans";
-  font-size: 14px;
+  font-size: 12px;
   font-style: normal;
   font-weight: 500;
   line-height: 20px; /* 142.857% */
   letter-spacing: 0.1px;
+  max-width: 160px;
 }
 .offerPrice {
   color: #cfc5b4;
@@ -104,7 +105,7 @@
 .cardPrice {
   color: #eae1d4;
   font-family: "Open Sans";
-  font-size: 22px;
+  font-size: 15px;
   font-style: normal;
   font-weight: 400;
   line-height: 28px; /* 127.273% */
