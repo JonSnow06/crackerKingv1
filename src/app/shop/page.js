@@ -11,7 +11,6 @@ import Dropdown from "../pages/dropdown";
 import Autocomplete from "../pages/AutoComplete";
 import { usePrevious } from "../helper";
 import Banner from "../pages/banner";
-import { useRouter } from "next/router";
 // Example Slide Components
 
 const Shop = () => {
@@ -33,8 +32,6 @@ const Shop = () => {
       width: "250px", // Adjust as needed
     };
   };
-  const [inputValue, setInputValue] = useState("");
-  const prevInputValue = usePrevious(inputValue);
 
   useEffect(() => {
     const filterData = sessionStorage.getItem("filterData");
@@ -53,7 +50,6 @@ const Shop = () => {
             const matchingProduct = storedArray.find(
               (product) => product.title === sparkler.title
             );
-
             if (matchingProduct) {
               // Update the sparkler object with matching product data
               sparkler.Selection = matchingProduct.Selection;
@@ -69,33 +65,11 @@ const Shop = () => {
     }
   }, [hasMounted]);
 
-  const suggestions = [
-    "flowerSpot1",
-    "flowerSpot5",
-    "flowerSpot2",
-    "flowerSpot3",
-    "flowerSpot4",
-    "Bomb1",
-    "Bomb2",
-    "Bomb3",
-    "Bomb4",
-    "Bomb6",
-    "Bomb5",
-    "Bomb7",
-  ];
-
-  const handleChange = (e) => {
-    setInputValue(e.target.value);
-  };
-
   const options = [
-    "flowerSpot",
-    "Bomb",
-    "Shot",
-    "forChildren",
-    "newArrivals",
-    "fancyItems",
-    "bestSellers",
+    "Kids special",
+    "Best Sellers",
+    "New arrivals",
+    "Fancy Items",
   ];
 
   const handleCardClick = (id, key, type, value, coutType) => {
@@ -159,7 +133,9 @@ const Shop = () => {
       }
       setFirerData(CRACKER_DATA);
     } else if (
-      ["forChildren", "newArrivals", "fancyItems", "bestSellers"].includes(data)
+      ["Kids special", "Best Sellers", "New arrivals", "Fancy Items"].includes(
+        data
+      )
     ) {
       const filteredVal = fireData.map((item) => {
         return {

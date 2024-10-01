@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import styles from "../styles/banner.module.css";
+import { useRouter } from "next/navigation";
 
 const Banner = ({
   backgroundImage,
@@ -8,10 +9,9 @@ const Banner = ({
   headerText,
   subheaderText,
   buttonText = "",
-  onButtonClick,
 }) => {
   const [windowWidth, setWindowWidth] = useState(1024);
-
+  const router = useRouter();
   useEffect(() => {
     setWindowWidth(window.innerWidth);
   }, []);
@@ -42,8 +42,8 @@ const Banner = ({
         {buttonText && (
           <button
             className={styles.bannerButton}
-            onClick={onButtonClick}
             style={{ cursor: "pointer" }}
+            onClick={() => router.push("/shop")}
           >
             {buttonText}
           </button>

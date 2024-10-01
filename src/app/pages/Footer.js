@@ -19,7 +19,7 @@ const Footer = () => {
         }}
       >
         <div className={Styles.footerContainer}>
-          <div style={{ maxWidth: "309px", width: "100%" }}>
+          <div className={Styles.footerLogoContainer}>
             <div className={Styles.footerLogo}>
               <Image src={crackerKing} style={{ marginBottom: "20px" }} />
             </div>

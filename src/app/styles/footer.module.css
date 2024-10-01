@@ -79,3 +79,13 @@
     justify-content: center;
   }
 }
+.footerLogoContainer {
+  max-width: 309px;
+  width: 100%;
+}
+
+@media (max-width: 430px) {
+  .footerLogoContainer {
+    max-width: none;
+  }
+}

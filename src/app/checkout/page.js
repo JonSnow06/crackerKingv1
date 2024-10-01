@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import Styles from "../styles/checkout.module.css";
 import InputField from "../pages/input";
 import Image from "next/image";
@@ -7,7 +8,6 @@ import Footer from "../pages/Footer";
 import Navbar from "../pages/navbar";
 import Popup from "../pages/popup"; // Import the Popup component
 import Banner from "../pages/banner";
-import Script from "next/script";
 
 const Checkout = () => {
   const [formData, setFormData] = useState({
@@ -24,9 +24,9 @@ const Checkout = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [shopKartData, setShopKartData] = useState([]);
   const [hasMounted, setHasMounted] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
-    // Set hasMounted to true after the component mounts
     setHasMounted(true);
   }, []);
 
@@ -105,6 +105,19 @@ const Checkout = () => {
 
   const handleClosePopup = () => {
     setShowPopup(false);
+    if (popupMessage === "Your order has been submitted.") {
+      router.push("/");
+      setFormData({
+        name: "",
+        emailId: "",
+        phoneNumber: "",
+        address1: "",
+        address2: "",
+        city: "",
+        pincode: "",
+        state: "",
+      });
+    }
   };
 
   const totalOfferPrice = shopKartData.reduce(

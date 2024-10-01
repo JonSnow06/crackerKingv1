@@ -112,6 +112,7 @@ const homePage = () => {
               <div
                 className={Styles.crackersCard}
                 onClick={() => navigateShop("bestSellers")}
+                style={{ cursor: "pointer" }}
               >
                 <div
                   style={backgroundImageStyle(
@@ -123,6 +124,7 @@ const homePage = () => {
               <div
                 className={Styles.crackersCard}
                 onClick={() => navigateShop("forChildren")}
+                style={{ cursor: "pointer" }}
               >
                 <div
                   style={backgroundImageStyle(
@@ -138,6 +140,7 @@ const homePage = () => {
                     "https://crackerskingsassets.s3.ap-south-1.amazonaws.com/new+arrivals.svg"
                   )
                 }
+                style={{ cursor: "pointer" }}
               >
                 <div
                   style={backgroundImageStyle(
@@ -149,6 +152,7 @@ const homePage = () => {
               <div
                 className={Styles.crackersCard}
                 onClick={() => navigateShop("fancyItems")}
+                style={{ cursor: "pointer" }}
               >
                 <div
                   style={backgroundImageStyle(

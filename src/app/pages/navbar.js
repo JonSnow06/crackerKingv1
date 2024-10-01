@@ -10,6 +10,7 @@ import ShopKart from "../ShopKart";
 import { useEffect, useState } from "react";
 import { usePrevious } from "../helper";
 import { useRouter } from "next/navigation";
+import axios from "axios";
 
 const Navbar = ({ fireData = [] }) => {
   const router = useRouter();
@@ -21,14 +22,36 @@ const Navbar = ({ fireData = [] }) => {
     setCount(storedArrayString);
   }, [fireData]);
 
-  const handleDownload = () => {
-    const link = document.createElement("a");
-    link.href =
-      "https://crackerskingsassets.s3.ap-south-1.amazonaws.com/CRCKERS+KING+2024.pdf"; // Direct download link
-    link.download = "PriceList.pdf"; // Optional: Rename the file when downloaded
-    link.click();
+  const fetchPDF = () => {
+    return new Promise((resolve, reject) => {
+      axios
+        .get(
+          "https://crackerskingsassets.s3.ap-south-1.amazonaws.com/" +
+            "CRCKERS+KING+2024.pdf",
+          { responseType: "blob" }
+        )
+        .then((response) => {
+          resolve(response);
+          console.log(response);
+        })
+        .catch((error) => {
+          reject(error);
+          console.log(error);
+        });
+    });
   };
 
+  const handleDownload = async () => {
+    const response = await fetchPDF();
+    const pdfBlob = new Blob([response.data], { type: "application/pdf" });
+    const blobUrl = URL.createObjectURL(pdfBlob);
+    const link = document.createElement("a");
+    link.href = blobUrl;
+    link.setAttribute("download", "Price List Crackers King.pdf"); // Specify the file name for download
+    document.body.appendChild(link);
+    link.click(); // Trigger the download
+    link.remove(); // Clean up the link
+  };
   return (
     <>
       <nav className={Styles.navbar}>

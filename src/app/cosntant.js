@@ -1210,7 +1210,7 @@ export const CRACKER_DATA = [
       {
         key: 1,
         image:
-          "https://crackerskingsassets.s3.ap-south-1.amazonaws.com/Magic-Peacock-(3--in-1).png",
+          "https://crackerskingsassets.s3.ap-south-1.amazonaws.com/Magic-Peacock-3--in-1.png",
         title: "Magic Peacock (3 in 1)",
         cardPrice: "₹675.00",
         offerPrice: "₹135.00",
@@ -1224,7 +1224,7 @@ export const CRACKER_DATA = [
       {
         key: 2,
         image:
-          "https://crackerskingsassets.s3.ap-south-1.amazonaws.com/Dancing-Peacock-(5--in-1).png",
+          "https://crackerskingsassets.s3.ap-south-1.amazonaws.com/Dancing-Peacock-5--in-1.png",
         title: "Dancing Peacock (5 in 1)",
         cardPrice: "₹750.00",
         offerPrice: "₹150.00",
@@ -1392,7 +1392,7 @@ export const CRACKER_DATA = [
       {
         key: 4,
         image:
-          "https://crackerskingsassets.s3.ap-south-1.amazonaws.com/Vikram-(Mega).png",
+          "https://crackerskingsassets.s3.ap-south-1.amazonaws.com/Vikram-Mega.png",
         title: "Vikram (Mega 10)",
         cardPrice: "₹1000.00",
         offerPrice: "₹200.00",
@@ -1440,7 +1440,7 @@ export const CRACKER_DATA = [
       {
         key: 3,
         image:
-          "https://crackerskingsassets.s3.ap-south-1.amazonaws.com/7-Shot-(5PCS).png",
+          "https://crackerskingsassets.s3.ap-south-1.amazonaws.com/7-Shot-5PCS.png",
         title: "7 Shot (5 Pcs)",
         cardPrice: "₹500.00",
         offerPrice: "₹100.00",

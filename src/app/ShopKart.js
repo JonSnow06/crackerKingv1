@@ -37,8 +37,61 @@ function ShopKart({ setOpen, open, setCount }) {
     }
   }, [hasMounted]);
 
-  const removeData = (id) => {
-    const data = shopKartData.filter((item) => item.key !== id);
+  const removeData = (id, type, value) => {
+    let data = shopKartData;
+    if (type === "delete") {
+      data = shopKartData.filter((item) => item.title !== id);
+    }
+    if (type === "add") {
+      const val = shopKartData.map((item) => {
+        if (item.title === id) {
+          return {
+            ...item,
+            count: item.count + 1,
+          };
+        }
+        return item;
+      });
+      data = val.map((item) => {
+        return {
+          ...item,
+          totalPrice: (
+            parseFloat(item.offerPrice.replace("₹", "")) * item.count
+          ).toFixed(2),
+          totalCardPrice: (
+            parseFloat(item.cardPrice.replace("₹", "")) * item.count
+          ).toFixed(2),
+        };
+      });
+    }
+    if (type === "minus" && value > 0) {
+      const val = shopKartData.map((item) => {
+        if (item.title === id) {
+          return {
+            ...item,
+            count: item.count - 1,
+            totalPrice: (
+              parseFloat(item.offerPrice.replace("₹", "")) * item.count
+            ).toFixed(2),
+            totalCardPrice: (
+              parseFloat(item.cardPrice.replace("₹", "")) * item.count
+            ).toFixed(2),
+          };
+        }
+        return item;
+      });
+      data = val.map((item) => {
+        return {
+          ...item,
+          totalPrice: (
+            parseFloat(item.offerPrice.replace("₹", "")) * item.count
+          ).toFixed(2),
+          totalCardPrice: (
+            parseFloat(item.cardPrice.replace("₹", "")) * item.count
+          ).toFixed(2),
+        };
+      });
+    }
     setCount(data.length);
     setShopKartData(data);
     sessionStorage.setItem("cartData", JSON.stringify(data));
@@ -63,11 +116,16 @@ function ShopKart({ setOpen, open, setCount }) {
     (sum, item) => sum + parseFloat(item.totalCardPrice.replace("₹", "")),
     0
   );
-  console.log(totalCardPrice, totalOfferPrice, shopKartData, "king");
+
+  const closeModal = () => {
+    setOpen(!open);
+    window.location.reload();
+  };
+
   return (
     <div className={Styles.shopKartContainer}>
       <div className={Styles.shopModalWrapper}>
-        <span className={Styles.closeIcon} onClick={() => setOpen(!open)}>
+        <span className={Styles.closeIcon} onClick={() => closeModal()}>
           &times;
         </span>
         <div
@@ -89,10 +147,12 @@ function ShopKart({ setOpen, open, setCount }) {
             <>
               <div className={Styles.shopKartWrapper}>
                 {shopKartData.map((item) => (
-                  <div key={item.key} className={Styles.shopKartCard}>
+                  <div key={item.title} className={Styles.shopKartCard}>
                     <Image
-                      src={item.imagePic}
+                      src={item.image}
                       alt={item.title}
+                      width={80}
+                      height={80}
                       style={{ width: "80px", height: "80px" }}
                     />
                     <div
@@ -113,17 +173,31 @@ function ShopKart({ setOpen, open, setCount }) {
                         </span>
                       </div>
                       <div className={Styles.cardQuantity}>
-                        <Image src={minus} alt="minus" />
+                        <Image
+                          src={minus}
+                          alt="minus"
+                          onClick={() =>
+                            removeData(item.title, "minus", item.count)
+                          }
+                          style={{ cursor: "pointer" }}
+                        />
                         <span>{item.count}</span>
-                        <Image src={add} alt="add" />
+                        <Image
+                          src={add}
+                          alt="add"
+                          onClick={() =>
+                            removeData(item.title, "add", item.count)
+                          }
+                          style={{ cursor: "pointer" }}
+                        />
                       </div>
                       <span className={Styles.cardPrice}>
-                        {item.totalPrice}
+                        ₹{item.totalPrice}
                       </span>
                       <Image
                         src={deletes}
                         alt="delete"
-                        onClick={() => removeData(item.key)}
+                        onClick={() => removeData(item.title, "delete")}
                       />
                     </div>
                   </div>
