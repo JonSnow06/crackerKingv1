@@ -32,7 +32,7 @@ const Banner = ({
   const backgroundImageStyle =
     windowWidth > 600
       ? { backgroundImage: `url(${backgroundImage})`, height: "100vh" }
-      : { backgroundImage: `url(${mobileBackgroundImage})`, height: "800px" };
+      : { backgroundImage: `url(${mobileBackgroundImage})`, height: "720px" };
 
   return (
     <div className={styles.bannerContainer} style={backgroundImageStyle}>
