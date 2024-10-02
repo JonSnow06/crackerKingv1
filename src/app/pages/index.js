@@ -111,7 +111,7 @@ const homePage = () => {
             >
               <div
                 className={Styles.crackersCard}
-                onClick={() => navigateShop("bestSellers")}
+                onClick={() => navigateShop("Best Sellers")}
                 style={{ cursor: "pointer" }}
               >
                 <div
@@ -123,7 +123,7 @@ const homePage = () => {
               </div>
               <div
                 className={Styles.crackersCard}
-                onClick={() => navigateShop("forChildren")}
+                onClick={() => navigateShop("Kids special")}
                 style={{ cursor: "pointer" }}
               >
                 <div
@@ -135,11 +135,7 @@ const homePage = () => {
               </div>
               <div
                 className={Styles.crackersCard}
-                onClick={() =>
-                  navigateShop(
-                    "https://crackerskingsassets.s3.ap-south-1.amazonaws.com/new+arrivals.svg"
-                  )
-                }
+                onClick={() => navigateShop("New arrivals")}
                 style={{ cursor: "pointer" }}
               >
                 <div
@@ -151,7 +147,7 @@ const homePage = () => {
               </div>
               <div
                 className={Styles.crackersCard}
-                onClick={() => navigateShop("fancyItems")}
+                onClick={() => navigateShop("Fancy Items")}
                 style={{ cursor: "pointer" }}
               >
                 <div

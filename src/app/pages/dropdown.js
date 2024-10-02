@@ -14,7 +14,7 @@ const CustomDropdown = ({ options, label, handleSelect, value, setOption }) => {
     setOption("");
     setIsOpen(false);
     if (
-      ["forChildren", "newArrivals", "fancyItems", "bestSellers"].includes(
+      ["Kids special", "Best Sellers", "New arrivals", "Fancy Items"].includes(
         value
       )
     ) {

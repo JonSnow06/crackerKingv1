@@ -150,7 +150,7 @@ export const accordian = [
 export const CRACKER_DATA = [
   {
     id: 1,
-    title: "SPARKLERS",
+    title: "Sparklers",
     sparklersData: [
       {
         key: 1,
@@ -1407,7 +1407,7 @@ export const CRACKER_DATA = [
   },
   {
     id: 11,
-    title: "Fancy Items",
+    title: "Fancy Item",
     sparklersData: [
       {
         key: 1,

@@ -66,6 +66,21 @@ const Shop = () => {
   }, [hasMounted]);
 
   const options = [
+    "Sparklers",
+    "Flower Pots",
+    "Ground Chakkers",
+    "Novelties",
+    "Single Sound",
+    "Bombs",
+    "Rockets",
+    "Peacocks",
+    "Colour Fancy",
+    "Paper Bombs",
+    "Fancy Item",
+    "Night Boomers",
+    "Multi Color Shots",
+    "2K/24 Series",
+    "Gift Boxes",
     "Kids special",
     "Best Sellers",
     "New arrivals",
@@ -145,7 +160,10 @@ const Shop = () => {
           ),
         };
       });
-      setFirerData(filteredVal);
+      const valData = filteredVal.filter(
+        ({ sparklersData }) => sparklersData.length > 0
+      );
+      setFirerData(valData);
       sessionStorage.setItem("filterData", "");
     } else {
       document.getElementById(data).scrollIntoView({ behavior: "smooth" });
@@ -177,168 +195,170 @@ const Shop = () => {
           {fireData?.length > 0 &&
             fireData?.map(({ title, sparklersData, id }, index) => {
               return (
-                <div
-                  style={{
-                    paddingBottom: "30px",
-                    borderBottom: "1px solid #4C4639;",
-                    marginBottom: "50px",
-                  }}
-                >
-                  <div
-                    id={title}
-                    style={{ display: "flex", justifyContent: "center" }}
-                  >
-                    <div
-                      style={
-                        index === 0
-                          ? {
-                              display: "flex",
-                              alignItems: "center",
-                              marginBottom: "50px",
-                              width: "100%",
-                            }
-                          : {
-                              marginBottom: "50px",
-                              width: "100%",
-                            }
-                      }
-                      className={Styles.experienceContainer}
-                    >
-                      <span className={Styles.experienceTitle}>{title}</span>
-                      {index === 0 && (
-                        <div className={Styles.experienceFilterContainer}>
-                          <Dropdown
-                            options={options}
-                            label="Filter"
-                            handleSelect={handleSelect}
-                            value={option}
-                            setOption={setOption}
-                          />
-                        </div>
-                      )}
-                    </div>
-                  </div>
-
+                <>
                   <div
                     style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      gap: "67px",
-                      flexWrap: "wrap",
-                      maxWidth: "1076px",
-                      width: "100%",
+                      paddingBottom: "30px",
+                      borderBottom: "1px solid #4C4639;",
+                      marginBottom: "50px",
                     }}
                   >
-                    {/* card component start here */}
-                    {sparklersData?.map((sparkler) => (
+                    <div
+                      id={title}
+                      style={{ display: "flex", justifyContent: "center" }}
+                    >
                       <div
-                        key={sparkler.id}
-                        className={Styles.card}
                         style={
-                          sparkler?.Selection
-                            ? { border: "1px solid #E4C36C" }
-                            : {}
+                          index === 0
+                            ? {
+                                display: "flex",
+                                alignItems: "center",
+                                marginBottom: "50px",
+                                width: "100%",
+                              }
+                            : {
+                                marginBottom: "50px",
+                                width: "100%",
+                              }
                         }
+                        className={Styles.experienceContainer}
                       >
-                        <div className={Styles.cardImageBackground}>
-                          <div
-                            style={backgroundImageStyle(sparkler?.image)}
-                          ></div>
-                        </div>
+                        <span className={Styles.experienceTitle}>{title}</span>
+                        {index === 0 && (
+                          <div className={Styles.experienceFilterContainer}>
+                            <Dropdown
+                              options={options}
+                              label="Filter"
+                              handleSelect={handleSelect}
+                              value={option}
+                              setOption={setOption}
+                            />
+                          </div>
+                        )}
+                      </div>
+                    </div>
+
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        gap: "67px",
+                        flexWrap: "wrap",
+                        maxWidth: "1076px",
+                        width: "100%",
+                      }}
+                    >
+                      {/* card component start here */}
+                      {sparklersData?.map((sparkler) => (
                         <div
-                          style={{
-                            display: "flex",
-                            justifyContent: "space-between",
-                            marginTop: "12px",
-                            alignItems: "center",
-                            marginBottom: "12px",
-                          }}
+                          key={sparkler.id}
+                          className={Styles.card}
+                          style={
+                            sparkler?.Selection
+                              ? { border: "1px solid #E4C36C" }
+                              : {}
+                          }
                         >
-                          <span className={Styles.cardTitle}>
-                            {sparkler?.title}
+                          <div className={Styles.cardImageBackground}>
+                            <div
+                              style={backgroundImageStyle(sparkler?.image)}
+                            ></div>
+                          </div>
+                          <div
+                            style={{
+                              display: "flex",
+                              justifyContent: "space-between",
+                              marginTop: "12px",
+                              alignItems: "center",
+                              marginBottom: "12px",
+                            }}
+                          >
+                            <span className={Styles.cardTitle}>
+                              {sparkler?.title}
+                            </span>
+                            <div
+                              style={{
+                                display: "flex",
+                                justifyContent: "center",
+                                gap: "10px",
+                                alignItems: "center",
+                              }}
+                            >
+                              <p className={Styles.offerPrice}>
+                                {sparkler?.cardPrice}
+                              </p>
+                              <span className={Styles.cardPrice}>
+                                {sparkler?.offerPrice}
+                              </span>
+                            </div>
+                          </div>
+                          <span className={Styles.cardSize}>
+                            {sparkler?.size}
                           </span>
                           <div
                             style={{
                               display: "flex",
-                              justifyContent: "center",
-                              gap: "10px",
-                              alignItems: "center",
+                              justifyContent: "space-between",
                             }}
                           >
-                            <p className={Styles.offerPrice}>
-                              {sparkler?.cardPrice}
-                            </p>
-                            <span className={Styles.cardPrice}>
-                              {sparkler?.offerPrice}
+                            <div
+                              className={Styles.cardQuantity}
+                              style={
+                                sparkler.count === 0
+                                  ? { cursor: "not-allowed" }
+                                  : { cursor: "pointer" }
+                              }
+                            >
+                              <Image
+                                src={minus}
+                                alt="minus"
+                                onClick={() =>
+                                  handleCardClick(
+                                    id,
+                                    sparkler.key,
+                                    "count",
+                                    sparkler.count,
+                                    "minus"
+                                  )
+                                }
+                              />
+                              <span>{sparkler?.count}</span>
+                              <Image
+                                src={add}
+                                alt="add"
+                                style={{ cursor: "pointer" }}
+                                onClick={() =>
+                                  handleCardClick(
+                                    id,
+                                    sparkler.key,
+                                    "count",
+                                    sparkler.count,
+                                    "add"
+                                  )
+                                }
+                              />
+                            </div>
+                            <span
+                              className={Styles.cardSelect}
+                              onClick={() =>
+                                handleCardClick(
+                                  id,
+                                  sparkler.key,
+                                  "Selection",
+                                  sparkler.Selection,
+                                  ""
+                                )
+                              }
+                            >
+                              {sparkler?.Selection ? "Unselect" : "Select"}
                             </span>
                           </div>
                         </div>
-                        <span className={Styles.cardSize}>
-                          {sparkler?.size}
-                        </span>
-                        <div
-                          style={{
-                            display: "flex",
-                            justifyContent: "space-between",
-                          }}
-                        >
-                          <div
-                            className={Styles.cardQuantity}
-                            style={
-                              sparkler.count === 0
-                                ? { cursor: "not-allowed" }
-                                : { cursor: "pointer" }
-                            }
-                          >
-                            <Image
-                              src={minus}
-                              alt="minus"
-                              onClick={() =>
-                                handleCardClick(
-                                  id,
-                                  sparkler.key,
-                                  "count",
-                                  sparkler.count,
-                                  "minus"
-                                )
-                              }
-                            />
-                            <span>{sparkler?.count}</span>
-                            <Image
-                              src={add}
-                              alt="add"
-                              style={{ cursor: "pointer" }}
-                              onClick={() =>
-                                handleCardClick(
-                                  id,
-                                  sparkler.key,
-                                  "count",
-                                  sparkler.count,
-                                  "add"
-                                )
-                              }
-                            />
-                          </div>
-                          <span
-                            className={Styles.cardSelect}
-                            onClick={() =>
-                              handleCardClick(
-                                id,
-                                sparkler.key,
-                                "Selection",
-                                sparkler.Selection,
-                                ""
-                              )
-                            }
-                          >
-                            {sparkler?.Selection ? "Unselect" : "Select"}
-                          </span>
-                        </div>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
+                    {/* card component end here */}
                   </div>
-                  {/* card component end here */}
-                </div>
+                </>
               );
             })}
         </div>

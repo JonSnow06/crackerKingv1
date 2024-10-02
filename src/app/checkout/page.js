@@ -99,14 +99,24 @@ const Checkout = () => {
     } else {
       setPopupMessage("Your order has been submitted.");
       sendEmail(totalOfferPrice, shopKartData);
+      const data = shopKartData.map((item) => {
+        return {
+          ...item,
+          count: 0,
+          Selection: false,
+        };
+      });
+      sessionStorage.setItem("shopKartData", JSON.stringify(data));
+      sessionStorage.setItem("cartData", JSON.stringify(data));
+      sessionStorage.setItem("cartCount", 0);
     }
-    setShowPopup(true);
+    // setShowPopup(true);
   };
 
   const handleClosePopup = () => {
     setShowPopup(false);
     if (popupMessage === "Your order has been submitted.") {
-      router.push("/");
+      router.push("/shop");
       setFormData({
         name: "",
         emailId: "",
@@ -159,6 +169,7 @@ const Checkout = () => {
               name="name"
               onChange={handleChange}
               value={formData.name}
+              type="text"
             />
             <InputField
               label="Mail ID"
@@ -169,8 +180,7 @@ const Checkout = () => {
             />
             <InputField
               label="Phone Number"
-              pattern="[6-9]{1}[0-9]{9}"
-              type="tel"
+              type="number"
               maxLength="10"
               required
               name="phoneNumber"
@@ -207,7 +217,7 @@ const Checkout = () => {
               />
               <InputField
                 label="pincode"
-                type="text"
+                type="number"
                 width="211px"
                 pattern="[1-9]{1}[0-9]{5}"
                 name="pincode"
@@ -237,9 +247,10 @@ const Checkout = () => {
               {shopKartData.map((item) => (
                 <div key={item.id} className={Styles.checkouKartCard}>
                   <Image
-                    src={item.imagePic}
+                    src={item.image}
                     alt={item.title}
-                    style={{ width: "80px", height: "80px" }}
+                    width={80}
+                    height={80}
                   />
                   <div>
                     <span className={Styles.checkoutCardTitle}>
