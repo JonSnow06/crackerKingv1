@@ -6,7 +6,7 @@ import InputField from "../pages/input";
 import Image from "next/image";
 import Footer from "../pages/Footer";
 import Navbar from "../pages/navbar";
-import Popup from "../pages/popup"; // Import the Popup component
+import Popup from "../pages/popup";
 import Banner from "../pages/banner";
 
 const Checkout = () => {
